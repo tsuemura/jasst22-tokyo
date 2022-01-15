@@ -41,7 +41,7 @@
 - テストコードの作成やデバッグを楽にする機能がいろいろある
 
 ---
-
+<!--
 ## testing-library
 
 「ユーザーと同じ目線でテストコードを書きたい」という思想から生まれたライブラリ
@@ -71,6 +71,8 @@ testing-libraryのクエリを調べるための Chrome Extension
 ![testing-playground](./images/testing-playground.png)
 
 ---
+
+-->
 
 ## インストール
 
@@ -323,39 +325,6 @@ describe('Login', () => {
 
 ---
 
-## テストシナリオをコードに変えていきましょう
 
-- https://hotel.testplanisphere.dev/ja/index.html にアクセスする
-- `ログイン` をクリックする
-- `メールアドレス` に `ichiro@example.com` と入力する
-- `パスワード` に `password` と入力する
-- `ログイン` をクリックする
-
----
-
-## 要素の取得
-
-前述の `testing-playground` を用います
-
-![suggested-query](./images/suggested-query.png)
-
----
-
-## テストシナリオをテストコードに変えていきましょう
-
-- https://hotel.testplanisphere.dev/ja/index.html にアクセスする
-- `ログイン` をクリックする
-- `メールアドレス` に `ichiro@example.com` と入力する
-- `パスワード` に `password` と入力する
-- `ログイン` をクリックする
-
-```js
-cy.url('https://hotel.testplanisphere.dev/ja/index.html')
-cy.
-
-```
-
-
----
 
 
