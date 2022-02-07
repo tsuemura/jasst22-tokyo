@@ -1,0 +1,13 @@
+{
+    "markdown.marp.themes": [
+        "./marpstyle/style/socrates.css",
+        "./marpstyle/style/plato.css",
+        "./marpstyle/style/leibniz.css",
+        "./marpstyle/style/kant.css",
+        "./marpstyle/style/hegel.css",
+        "./marpstyle/style/freud.css",
+        "./marpstyle/style/heidegger.css",
+        "./marpstyle/style/schema.css",
+        "./marpstyle/style/structure.css",
+        ]
+}

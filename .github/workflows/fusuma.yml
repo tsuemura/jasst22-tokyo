@@ -13,8 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npm ci
-      - run: npx fusuma build
+      - run: npx @marp-team/marp-cli@latest slides/index.md -o dist/index.html
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
