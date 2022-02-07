@@ -16,4 +16,4 @@ slide:
     plugins: []
     theme: default # coy | dark | funky | okaidia | solarizedlight | tomorrow | twilight
 build:
-  publicPath: jasst22-tokyo
+  publicPath: ./

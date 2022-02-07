@@ -1,39 +1,49 @@
-# 60分で学ぶ実践E2Eテスト（実装編）
+# 60分で学ぶE2Eテスト（実践編）
 
 ---
 
-# はじめに
+## 利用する技術の選定
+
+いくつか軸があります
+
+- クロスブラウザ・クロスデバイスはどのぐらい必要か？
+  - いらない → Cypress
+  - いる → PlayWright
+  - 超いる → Selenium
+- テストコードを読むのは開発者だけか？
+  - 開発者だけ → 普通のテストツールで良い
+  - チームみんなで読む → BDD系のツールを使う
+
+今回は **クロスブラウザは割り切る** し、 **テストコードは開発者がメンテする** ということで、Cypressにします
 
 ---
 
-## E2Eテストコード、書いてますか？
+## 参考: クロスブラウザ・クロスデバイスについて
+
+- 「いろんなブラウザでテスト出来たほうがいいじゃん」と思ってしまうのが人の常
+- 実際は自動テストを使おうが使わまいがクロスブラウザ対応はしんどい
+  - IE対応が辛いのはテストが辛いからじゃない、IEが辛いからだ
+  - **おまえは本当にIEについて良く理解しながらIEに対応しているのか？**
+- クロスブラウザテストできる ≠ クロスブラウザテストが **期待通り** 動く
+  - 自動化レイヤーのバグを踏むことも多い
+- nice to have でクロスブラウザに手を出さないこと
+  - お兄さんとの約束だよ
+
+---
+## 参考: BDD (Behavior Driven Development)
+
+- 自然言語でプロダクトの **振る舞い** を記述するためのツール
+  - 独自の **自然言語っぽい** 記述を使うもの
+  - Markdown を使うもの
+- チーム全体でプロダクトの振る舞いを考えて、それを自動化するためのもの
+- ノーコードのツールとは違う
+  - プログラミング不要でテスト自動化できるツールは志向していない
+- 今日はこの話はしません
+  - したいひとは後で声かけてください
 
 ---
 
-## 何に困ってますか？
-
-- 書きたいと思ってるんだけど、ググるといろんなやり方が出てきて、どれが良いやり方なのかわからない
-- 昔チャレンジしたんだけど、メンテナンスが上手く行かなかった
-- 勉強する時間がない、正解を教えてほしい
-
----
-
-## 今日話すこと
-
-時間もあんまり無いので、 **個人的ベストプラクティス** にフォーカスしてお伝えします
-
-- 爆速でセットアップしてテストコードを書き始める方法
-- 最近流行ってるライブラリ
-- 可読性の高いテストコードの書き方
-- サクッと運用に載せていく方法
-
----
-
-# 利用するライブラリ
-
----
-
-## Cypress
+## Cypressについて
 
 デベロッパーフレンドリーなE2Eテストツール
 
@@ -41,40 +51,8 @@
 - テストコードの作成やデバッグを楽にする機能がいろいろある
 
 ---
-<!--
-## testing-library
 
-「ユーザーと同じ目線でテストコードを書きたい」という思想から生まれたライブラリ
-
-アクセシビリティのためのAPIを使ってテストを書ける
-
-
-```html
-<header>
-    <h1>Awesome webpage</h1>
-</header>
-```
-
-```js
-getByRole('banner', 'Awesome webpage')
-```
-
----
-
-## testing-playground
-
-
-https://chrome.google.com/webstore/detail/testing-playground/hejbmebodbijjdhflfknehhcgaklhano
-
-testing-libraryのクエリを調べるための Chrome Extension
-
-![testing-playground](./images/testing-playground.png)
-
----
-
--->
-
-## インストール
+## Cypressのインストール
 
 NodeJSのインストールが必要です
 
@@ -116,215 +94,66 @@ $ npx cypress open
 
 ---
 
-# ステップ1: Cypress Studio でテストコードを自動記録する
+---
+
+## 早速書いていきます
+
+テストシナリオ
+
+- **会員登録して予約してログアウト**
+- プレミアム会員でログインして予約してログアウト
+- 一般会員でログインして予約してログアウト
+  - 一般会員の画面でプレミアム会員向けプランが出ていないことをテスト
 
 ---
 
-## Cypress Studio とは
+## まずはステップを書き起こす
 
-- テストコードを自動記録するためのツール
-- テスト結果から続けてテストコードを追記してくれる
-
----
-
-## テスト対象
-
-Hotel Planisphere
-
-https://hotel.testplanisphere.dev/ja/
-
-- 自動テスト用のサンプルサイト
-- （人によっては）親の顔より見たと思う
-
----
-
-## テストシナリオ
-
-- https://hotel.testplanisphere.dev/ja/index.html にアクセスする
-- `ログイン` をクリックする
-- `メールアドレス` に `ichiro@example.com` と入力する
-- `パスワード` に `password` と入力する
-- `ログイン` をクリックする
-
----
-
-## まずはテストを書く土台を作っていく
-
-`integration` フォルダ内に `login.js` を作り、以下のように記述する
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    // ここから先は自動記録でやってもらう
-  })
-})
-```
-
----
-
-## Cypressを起動する
-
-```bash
-$ npx cypress open
-```
+- テスト対象のサイトにアクセス
+  - `https://hotel.testplanisphere.dev/ja/` にアクセス
+- 会員登録
+  - `メニューバー` の `会員登録` をクリック
+  - `会員登録フォーム` の `メールアドレス` に `jasst21@example.com` と入力
+  - `会員登録フォーム` の `パスワード` に `P@ssw0rd` と入力
+  - `会員登録フォーム` の `パスワード（確認）` に `P@ssw0rd` と入力
+  - `会員登録フォーム` の `氏名` に `ジャスト 太郎` と入力
+  - `会員登録フォーム` の `住所` に `東京都千代田区千代田1-1-1` と入力
+  - `会員登録フォーム` の `電話番号` に `090-0000-0000` と入力
+  - `会員登録フォーム` の `性別` に `その他` と入力
+  - `会員登録フォーム` の `生年月日` に `1987/03/16` と入力
+  - `会員登録フォーム` の `お知らせを受け取る` に チェックを入れる
+- 宿泊予約
+  - `メニューバー` の `宿泊予約` をクリック
+  - `素泊まり` を含む `宿泊プラン` の `このプランで予約` をクリック
+  - `宿泊日` に `2022/03/16` を入力
+  - `宿泊数` に `3` と入力
+  - `人数` に `2` と入力
+  - `朝食バイキング` にチェックを入れる
+  - `氏名` が `ジャスト 太郎` であることを確認
+  - `確認のご連絡` に `メールでのご連絡` を選択
+  - `ご要望・ご連絡事項等ありましたらご記入ください` に `朝食はお部屋まで\n持ってきてください` と入力
+  - `予約内容を確認する` をクリック
+- 予約内容の確認
+  - ページに `合計 5,500円（税込み）` と表示されていることを確認
+  - ページに `素泊まり` と表示されていることを確認
+  - `期間` に `2022年2月9日 〜 2022年2月10日 1泊` と表示されていることを確認
+  - `人数` に `1名様` と表示されていることを確認
+  - `追加プラン` に `なし` と表示されていることを確認
+  - `人数` に `1名様` と表示されていることを確認
+  - `お名前` に `ジャスト 太郎` と表示されていることを確認
+  - `確認のご連絡` に `希望しない` と表示されていることを確認
+  - `ご要望・ご連絡事項等` に `朝食はお部屋まで\n持ってきてください` と表示されていることを確認
+  - `この内容で予約する` をクリック
+  - `モーダルダイアログ` に `予約を完了しました` と表示されていることを確認
+  - `モーダルダイアログ` の `閉じる` をクリック
+- ログアウトの確認
+  - `メニューバー` の `ログアウト` をクリック
+  - `メニューバー` に `ログアウト` が表示されていないことを確認
+  - `メニューバー` に `ログイン` が表示されていることを確認
 
 ---
 
-## 自動記録する
-
-
----
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get('#login-holder > .btn').click();
-    cy.get('#email').clear();
-    cy.get('#email').type('ichiro@example.com');
-    cy.get('#password').clear();
-    cy.get('#password').type('password');
-    cy.get('#login-button').click();
-    /* ==== End Cypress Studio ==== */
-  })
-})
-```
-
----
-
-## ちょっと読みにくいので加工しましょう
-
-コメントアウトされている箇所は消しても大丈夫
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get('#login-holder > .btn').click();
-    // cy.get('#email').clear();
-    cy.get('#email').type('ichiro@example.com');
-    // cy.get('#password').clear();
-    cy.get('#password').type('password');
-    cy.get('#login-button').click();
-    /* ==== End Cypress Studio ==== */
-  })
-})
-```
-
----
-
-# ステップ2: コードを読みやすくする
-
----
-
-- https://hotel.testplanisphere.dev/ja/index.html にアクセスする
-- `ログイン` をクリックする
-- `メールアドレス` に `ichiro@example.com` と入力する
-- `パスワード` に `password` と入力する
-- `ログイン` をクリックする
-
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    cy.get('#login-holder >  .btn').click();
-    cy.get('#email').type('ichiro@example.com');
-    cy.get('#password').type('password');
-    cy.get('#login-button').click();
-  })
-})
-```
-
-❌ 元のシナリオとテストコードの対応が取れていない
-
----
-
-## 理想はこう書きたい
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    cy.get('ログイン').click();
-    cy.get('メールアドレス').type('ichiro@example.com');
-    cy.get('パスワード').type('password');
-    cy.get('ログイン').click();
-  })
-})
-```
-
----
-
-## cy.contains() を使う
-
-- https://hotel.testplanisphere.dev/ja/index.html にアクセスする
-- `ログイン` をクリックする
-- `メールアドレス` に `ichiro@example.com` と入力する
-- `パスワード` に `password` と入力する
-- `ログイン` をクリックする
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-    cy.contains('ログイン').click();
-    cy.contains('メールアドレス').type('ichiro@example.com')
-    cy.contains('パスワード').type('password')
-    cy.contains('ログイン').click();
-  })
-})
-```
-
-元のシナリオと同じ書き方に出来た
-
----
-
-## あいまいな部分を排除する
-
-よく見ると「ログイン」というボタンが2つありますね
-
-![duplicated-query](./images/duplicated-query.png)
-
----
-
-## 構造に着目しましょう
-
-![ui-structure](./images/ui-structure.png)
-
-ユーザーはナビゲーションバーとフォームの「ログイン」ボタンを使い分けているはず
-
-要素選択も同じようにします
-
----
-
-## `within()` を使う
-
-```js
-describe('Login', () => {
-  it('as a premium member', () => {
-    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
-
-    // ナビゲーションバーの中の要素を操作
-    cy.get('nav').within(() => {
-      cy.contains('ログイン').click();
-    })
-
-    // フォームの中の要素を操作
-    cy.get('form').within(() => {
-      cy.contains('メールアドレス').type('ichiro@example.com')
-      cy.contains('パスワード').type('password')
-      cy.contains('ログイン').click();
-    })
-  })
-})
-```
-
----
-
+## テストコードにしてみよう
 
 
 
