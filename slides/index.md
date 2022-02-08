@@ -2,6 +2,13 @@
 marp: true
 theme: hegel
 ---
+<style>
+
+* {
+  font-family: sans-serif;
+}
+
+</style>
 
 # 60分で学ぶE2Eテスト（実践編）
 
