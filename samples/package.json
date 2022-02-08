@@ -12,5 +12,8 @@
   "dependencies": {
     "@testing-library/cypress": "^8.0.2",
     "cypress": "^9.2.0"
+  },
+  "devDependencies": {
+    "cypress-get-by-label": "^2.3.0"
   }
 }

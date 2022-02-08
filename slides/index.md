@@ -374,8 +374,7 @@ cy.contain('会員登録').click
 
 ---
 
-
-# あいまいな指定を減らす
+## あいまいな指定を減らす
 
 <div class="columns">
 <div>
@@ -402,7 +401,7 @@ cy.contain('会員登録').click
 1. サイトの構造を使う
    1. `メニューバー` の中の `会員登録` をクリック
 2. 要素のセマンティクスを使う
-   1. `会員登録` リンクをクリック
+   1. `会員登録` **リンク** をクリック
 
 併用することもできる
 
@@ -419,4 +418,112 @@ within('nav', () => {
 ```
 
 ---
+
+# こう書くのは良くない
+
+href属性を使う
+```js
+cy.get('a[href="./signup.html"])
+```
+
+class属性を使う
+```js
+cy.get('a.nav-link)
+```
+
+---
+
+# 要素探索のアンチパターン: 内部属性を用いる
+
+- `href` や `class` はサイトの内部で使われている属性
+- ユーザーはこれらを使って要素を **探さない**
+- ユーザーにとって無関係なものを使わないのがE2Eテストにおける鉄則
+- 代わりに **セマンティックタグ** **文言** **構造** などを用いる
+
+※セマンティックタグ: `a` `nav` など、文書の中で特定の意味を持つタグ
+逆に `div` や `span` などは意味を持たないタグとして扱われる
+
+---
+
+# 同じ要領でフォーム入力
+
+![form](images/form.png)
+
+原則に則れば、「メールアドレスラベルを持つ入力フォーム」を探したいが……
+
+---
+
+# 同じ要領でフォーム入力
+
+![input-label](images/input-label.png)
+
+ラベルは `for` 属性に指定された `id` を持つ `input` と紐付けられる
+
+---
+
+# Custom Command を利用する
+
+label から input を取得するのはとても一般的なテクニックですが
+Cypress標準では出来ません
+
+cypress-get-by-label という Custom Command をインストールします
+
+https://www.npmjs.com/package/cypress-get-by-label
+
+
+
+---
+
+# cypress-get-by-label のインストール
+
+```bash
+$ npm i -D cypress-get-by-label
+```
+
+`cypress/support/commands.js` に以下を記述
+
+---
+
+## こう書けるようになる
+
+```js
+cy.getByLabel('メールアドレス').type('jasst21@example.com')
+```
+---
+
+## 続けて書いていきましょう
+
+```js
+cy.getByLabel('メールアドレス').type('jasst21@example.com')
+cy.getByLabel(`パスワード`).type(`P@ssw0rd`)
+cy.getByLabel(`パスワード（確認）`).type(`P@ssw0rd`)
+cy.getByLabel(`氏名`).type(`ジャスト 太郎`)
+cy.getByLabel(`住所`).type(`東京都千代田区千代田1-1-1`)
+cy.getByLabel(`電話番号`).type(`09000000000`)
+cy.getByLabel(`性別`).select(`その他`)
+cy.getByLabel(`生年月日`).type(`1987-03-16`)
+cy.getByLabel(`お知らせを受け取る`).click()
+cy.contains('登録').click()
+```
+---
+
+# 操作対象をFormの中に限定しましょう
+
+```js
+cy.get('form').within(()=> {
+  cy.getByLabel('メールアドレス').type('jasst21@example.com')
+  cy.getByLabel(`パスワード`).type(`P@ssw0rd`)
+  cy.getByLabel(`パスワード（確認）`).type(`P@ssw0rd`)
+  cy.getByLabel(`氏名`).type(`ジャスト 太郎`)
+  cy.getByLabel(`住所`).type(`東京都千代田区千代田1-1-1`)
+  cy.getByLabel(`電話番号`).type(`09000000000`)
+  cy.getByLabel(`性別`).select(`その他`)
+  cy.getByLabel(`生年月日`).type(`1987-03-16`)
+  cy.getByLabel(`お知らせを受け取る`).click()
+  cy.contains('登録').click()
+})
+```
+
+限定しないと、最後の `cy.contains('登録')` で
+`会員登録` というリンクをクリックしてしまいます
 
