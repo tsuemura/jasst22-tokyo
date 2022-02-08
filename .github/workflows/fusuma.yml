@@ -15,7 +15,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npx @marp-team/marp-cli@latest slides/index.md -o dist/index.html
+      - run: npx --output dist/index.html --theme-set ./marpstyle/style -- slides/index.md
+      - run: cp -R slides/images dist/images
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
