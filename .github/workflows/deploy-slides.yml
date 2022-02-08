@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npx @marp-team/marp-cli@latest --output dist --input-dir slides --theme-set ./marpstyle/style -- slides/index.md
+      - run: npx @marp-team/marp-cli@latest --output dist --input-dir slides --theme-set ./marpstyle/style
       - run: cp -R slides/images dist/images
       - uses: peaceiris/actions-gh-pages@v3
         with:
