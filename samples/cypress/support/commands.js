@@ -26,3 +26,8 @@
 
 const { registerCommand } = require("cypress-get-by-label");
 registerCommand();
+
+Cypress.Commands.add("getCardByText", (text) => {
+  const selector = 'div.card-body'
+  cy.contains(selector, text)
+});

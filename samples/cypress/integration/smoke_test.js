@@ -1,6 +1,10 @@
 describe('スモークテスト', () => {
   it('会員登録して予約してログアウト', () => {
+    
+    // テスト対象のサイトにアクセス
     cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
+
+    // 会員登録
     cy.get('nav').within(() => {
       cy.contains('会員登録').click()
     })
@@ -16,6 +20,18 @@ describe('スモークテスト', () => {
       cy.getByLabel(`お知らせを受け取る`).click();
       cy.contains("登録").click();
     });
-    
+
+    // 宿泊プランを選択
+    cy.get('nav').within(() => {
+      cy.contains('宿泊予約').click()
+    })
+    cy.getCardByText('素泊まり').within(() => {
+      cy.contains('このプランで予約').click()
+    })
+
+    // 宿泊予約
+    // 予約内容を確認
+    // ログアウト
+
   })
 })
