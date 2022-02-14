@@ -93,190 +93,21 @@ $ npx cypress open
 
 # 早速書いていきます
 
-テストシナリオ
-
-- **会員登録して予約してログアウト**
-- プレミアム会員でログインして予約してログアウト
-- 一般会員でログインして予約してログアウト
-  - 一般会員の画面でプレミアム会員向けプランが出ていないことをテスト
+- **非会員で予約**
+- 会員登録→予約→ログアウト
+- プレミアム会員でログイン→予約→ログアウト
+- 一般会員でログイン→予約→ログアウト
+- 一般会員の画面にプレミアム会員限定プランが表示されないこと
+- 非会員の画面に一般・プレミアム会員限定プランが表示されないこと
 
 ---
 
-# まずはステップを書き起こす
+# テスト設計はこんな感じでした
 
 - テスト対象のサイトにアクセス
-- 会員登録
 - 宿泊プランを選択
 - 宿泊予約
 - 予約内容の確認
-- ログアウト
-
----
-
-# まずはステップを書き起こす
-
-<div class="columns">
-<div>
-
-## テスト対象のサイトにアクセス
-
-```js
-- `https://hotel.testplanisphere.dev/ja/`
-   にアクセス
-```
-
-</div>
-<div>
-
-![hoteltop](images/hoteltop.png)
-
-</div>
-
----
-
-# まずはステップを書き起こす
-
-<div class="columns">
-
-<div>
-
-## 会員登録
-
-```js
-- `会員登録` をクリック
-- `メールアドレス` に `jasst21@example.com` と入力
-- `パスワード` に `P@ssw0rd` と入力
-- `パスワード（確認）` に `P@ssw0rd` と入力
-- `氏名` に `ジャスト 太郎` と入力
-- `住所` に `東京都千代田区千代田1-1-1` と入力
-- `電話番号` に `090-0000-0000` と入力
-- `性別` に `その他` と入力
-- `生年月日` に `1987/03/16` と入力
-- `お知らせを受け取る` に チェックを入れる
-```
-
-</div>
-<div>
-
-![register](images/register.png)
-
-</div>
-</div>
-
----
-
-# まずはステップを書き起こす
-
-<div class="columns">
-
-<div>
-
-## 宿泊プランの選択
-
-```js
-- `宿泊予約` をクリック
-- `このプランで予約` をクリック
-```
-
-</div>
-<div>
-
-![select-plan](images/select-plan.png)
-
-</div>
-
----
-
-# まずはステップを書き起こす
-
-<div class="columns">
-
-<div>
-
-## 宿泊予約
-
-```js
-- `宿泊日` に `2022/03/16` を入力
-- `宿泊数` に `3` と入力
-- `人数` に `2` と入力
-- `朝食バイキング` にチェックを入れる
-- `氏名` が `ジャスト 太郎` であることを確認
-- `確認のご連絡` に `メールでのご連絡` を選択
-- `ご要望・ご連絡事項等ありましたらご記入ください` に
-  `朝食はお部屋まで\n持ってきてください` と入力
-- `予約内容を確認する` をクリック
-```
-
-</div>
-<div>
-
-![reserve](images/reserve.png)
-
-</div>
-</div>
-
----
-
-# まずはステップを書き起こす
-
-<div class="columns">
-
-<div>
-
-## 予約内容の確認
-
-```js
-- `合計 5,500円（税込み）` と表示されていることを確認
-- `素泊まり` と表示されていることを確認
-- `期間` に `2022年2月9日 〜 2022年2月10日 1泊` と
-  表示されていることを確認
-- `人数` に `1名様` と表示されていることを確認
-- `追加プラン` に `なし` と表示されていることを確認
-- `人数` に `1名様` と表示されていることを確認
-- `お名前` に `ジャスト 太郎` と表示されていることを確認
-- `確認のご連絡` に `希望しない` と表示されていることを確認
-- `ご要望・ご連絡事項等` に
-  `朝食はお部屋まで\n持ってきてください` と
-  表示されていることを確認
-- `この内容で予約する` をクリック
-- `予約を完了しました` と
-  表示されていることを確認
-- `閉じる` をクリック
-```
-
-</div>
-<div>
-
-![reserve-confirmation](images/reserve-confirmation.png)
-
-</div>
-
----
-
-# まずはステップを書き起こす
-
-## ログアウト
-
-```js
-- `ログアウト` をクリック
-- `ログアウト` が表示されていないことを確認
-- `ログイン` が表示されていることを確認
-```
-
----
-
-自動化コードは、
-ほとんどこれらのステップをそのままプログラミングしたものになる
-
-```js
-
-// `ログアウト` をクリック
-cy.contains('ログアウト').click()
-
-```
-
-逆に言えば、そのままプログラミングできないところを、
-どうわかりやすく書けるかが鍵になる
 
 ---
 
@@ -286,7 +117,7 @@ cy.contains('ログアウト').click()
 
 ```js
 describe('スモークテスト', () => {
-  it('会員登録して予約してログアウト', () => {
+  it('非会員で予約', () => {
     // ここにテストコードを書いていきます
   })
 })
@@ -299,10 +130,18 @@ describe('スモークテスト', () => {
 ## テスト対象のサイトにアクセス
 
 ```js
-cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
+describe('スモークテスト', () => {
+  it('非会員で予約', () => {
+
+    // テスト対象のサイトにアクセス
+    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
+
+  })
+})
 ```
 
-ここは簡単ですね
+- コマンドは（一部の例外を除き） `cy` から始まる
+- `cy.visit()` は指定したURLに移動するコマンド
 
 ---
 
@@ -313,10 +152,10 @@ cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
 
 <div>
 
-## 会員登録画面に遷移
+## 宿泊予約サイトにアクセス
 
 ```js
-- `会員登録` をクリック
+- `宿泊予約` をクリック
 ```
 
 </div>
@@ -326,7 +165,7 @@ Cypressでは `contain()` を使って
 特定の文字を含む要素を指定できる
 
 ```js
-cy.contain('会員登録').click()
+cy.contain('宿泊予約').click()
 ```
 
 
@@ -335,267 +174,206 @@ cy.contain('会員登録').click()
 
 ---
 
-## あいまいな指定を減らす
+# テストコードを書いてみよう
+
+## 宿泊予約サイトにアクセス
+
+```js
+describe('スモークテスト', () => {
+  it('非会員で予約', () => {
+
+    // テスト対象のサイトにアクセス
+    cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
+
+    cy.contain('宿泊予約').click()
+  })
+})
+```
+
+---
+
+# 自動化は難しくない
+
+テスト手順をそのまま1:1対応でプログラミングすれば、それがテストコード
+
+```js
+
+"https://hotel.testplanisphere.dev/ja/index.html" にアクセスする
+
+↓
+
+cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
+
+```
+
+
+```js
+
+"宿泊予約" をクリックする
+
+↓
+
+cy.contains('宿泊予約').click()
+
+```
+
+---
+
+# 実際に動かしてみよう
+
 
 <div class="columns">
 <div>
 
-![](images/account-registration.png)
+コマンドラインから以下を実行する
+
+```js
+
+$ npx cypress open
+
+```
+</div>
+<div>
+
+![2022-02-10-06-51-48](images/2022-02-10-06-51-48.png)
+smoke_test.jsをクリック
+</div>
+
+---
+
+![2022-02-10-06-54-32](images/2022-02-10-06-54-32.png)
+ブラウザが開いて、URLに遷移できた
+
+---
+
+# 宿泊プランの選択
+
+<div class="columns-center">
+
+<div>
+
+![h:500px](images/2022-02-10-06-59-57.png)
 
 </div>
 <div>
 
-```js
-- `会員登録` をクリック
-```
-
-- 「会員登録」という文字は2箇所
-- どちらをクリックする？
+複数の宿泊プランから
+「素泊まり」を選択したい
 
 </div>
+
+---
+
+# 込み入った処理を表現する
+
+`素泊まり` を含む `宿泊プラン` の `このプランを選択` をクリックする
+
+```js
+
+cy.contains('素泊まり').contains('このプランで予約').click()
+
+```
+
+このコードで動くかな……？ 🤔
+
+---
+
+
+# 目当ての要素が見つからない
+
+![2022-02-10-08-31-56](images/2022-02-10-08-31-56.png)
+
+`cy.contains('素泊まり')` が `h5` 要素にマッチしてしまったのが原因
+
+---
+
+# 探索の範囲を絞り込む
+
+<div class="columns">
+<div>
+
+![](images/card.png)
+
+</div><div>
+
+### やりたいこと
+
+**素泊まり** というテキストを含む
+*カード*の取得
+
+### 実際
+
+**素泊まり** というテキストを含む
+*見出し* が取得された
+
+---
+
+# 探索の範囲を絞り込む
+
+<div class="columns">
+<div>
+
+![](images/card.png)
+
+</div><div>
+
+```js
+cy.contains('div.card-body', '素泊まり')
+  .contains('このプランで予約').click()
+```
+
+`h5` ではなく
+
+`card-body` というclassを持つ
+`div` 要素を取得するようになった
+
 </div>
 
 ---
 
-# あいまいな指定を減らす
-
-1. サイトの構造を使う
-   1. *`メニューバー` の中の* `会員登録` をクリック
-2. 要素のセマンティクスを使う
-   1. `会員登録` *リンク* をクリック
-
----
-
-# サイトの構造を使ってテストを書く
-
-`within` を使うと、「xxの中のyy」という構造を表現できる
-
-```js
-within('nav', () => {
-  cy.contain('会員登録').click
-})
-```
-
----
-
-# こう書くのは良くない
-
-href属性を使う
-```js
-cy.get('a[href="./signup.html"])
-```
-
-class属性を使う
-```js
-cy.get('a.nav-link)
-```
-
----
-
-# 要素探索のアンチパターン: 内部属性を用いる
-
-- `href` や `class` はサイトの内部で使われている属性
-- ユーザーはこれらを使って要素を **探さない**
-- ユーザーにとって無関係なものを使わないのがE2Eテストにおける鉄則
-- 代わりに **セマンティックタグ / 文言 / 構造** などを用いる
-
-※セマンティックタグ: `a` `nav` など、文書の中で特定の意味を持つタグ
-逆に `div` や `span` などは意味を持たないタグとして扱われる
-
----
-
-# 同じ要領でフォーム入力
-
-![form](images/form.png)
-
-原則に則れば、「メールアドレスラベルを持つ入力フォーム」を探したいが……
-
----
-
-# 同じ要領でフォーム入力
-
-![input-label](images/input-label.png)
-
-ラベルは `for` 属性に指定された `id` を持つ `input` と紐付けられる
-
----
-
-# Custom Command を利用する
-
-label から input を取得するのはとても一般的なテクニックですが
-Cypress標準では出来ません
-
-cypress-get-by-label という Custom Command をインストールします
-
-https://www.npmjs.com/package/cypress-get-by-label
-
-
-
----
-
-# cypress-get-by-label のインストール
-
-```bash
-$ npm i -D cypress-get-by-label
-```
-
-`cypress/support/commands.js` に以下を記述
-
----
-
-## こう書けるようになる
-
-```js
-cy.getByLabel('メールアドレス').type('jasst21@example.com')
-```
----
-
-## 続けて書いていきましょう
-
-```js
-
-cy.getByLabel('メールアドレス').type('jasst21@example.com')
-cy.getByLabel(`パスワード`).type(`P@ssw0rd`)
-cy.getByLabel(`パスワード（確認）`).type(`P@ssw0rd`)
-cy.getByLabel(`氏名`).type(`ジャスト 太郎`)
-cy.getByLabel(`住所`).type(`東京都千代田区千代田1-1-1`)
-cy.getByLabel(`電話番号`).type(`09000000000`)
-cy.getByLabel(`性別`).select(`その他`)
-cy.getByLabel(`生年月日`).type(`1987-03-16`)
-cy.getByLabel(`お知らせを受け取る`).click()
-cy.contains('登録').click()
-
-```
----
-
-# 操作対象をFormの中に限定しましょう
-
-```js
-
-cy.get('form').within(()=> {
-  cy.getByLabel('メールアドレス').type('jasst21@example.com')
-  cy.getByLabel(`パスワード`).type(`P@ssw0rd`)
-  cy.getByLabel(`パスワード（確認）`).type(`P@ssw0rd`)
-  cy.getByLabel(`氏名`).type(`ジャスト 太郎`)
-  cy.getByLabel(`住所`).type(`東京都千代田区千代田1-1-1`)
-  cy.getByLabel(`電話番号`).type(`09000000000`)
-  cy.getByLabel(`性別`).select(`その他`)
-  cy.getByLabel(`生年月日`).type(`1987-03-16`)
-  cy.getByLabel(`お知らせを受け取る`).click()
-  cy.contains('登録').click()
-})
-
-```
-
-限定しないと、最後の `cy.contains('登録')` で
-`会員登録` というリンクをクリックしてしまいます
-
----
-
-# ここまでのコード
+# 現在のテストコード
 
 ```js
 describe('スモークテスト', () => {
-  it('会員登録して予約してログアウト', () => {
+  it('非会員で予約', () => {
+
     // テスト対象のサイトにアクセス
     cy.visit("https://hotel.testplanisphere.dev/ja/index.html");
 
-    // 会員登録
-    cy.get('nav').within(() => {
-      cy.contains('会員登録').click()
-    })
-    cy.get("form").within(() => {
-      cy.getByLabel("メールアドレス").type("jasst21@example.com");
-      cy.getByLabel(`パスワード`).type(`P@ssw0rd`);
-      cy.getByLabel(`パスワード（確認）`).type(`P@ssw0rd`);
-      cy.getByLabel(`氏名`).type(`ジャスト 太郎`);
-      cy.getByLabel(`住所`).type(`東京都千代田区千代田1-1-1`);
-      cy.getByLabel(`電話番号`).type(`09000000000`);
-      cy.getByLabel(`性別`).select(`その他`);
-      cy.getByLabel(`生年月日`).type(`1987-03-16`);
-      cy.getByLabel(`お知らせを受け取る`).click();
-      cy.contains("登録").click();
-    });
+    cy.contain('宿泊予約').click()
 
-    // 宿泊プランを選択
-    // 宿泊予約
-    // 予約内容を確認
-    // ログアウト
-
+    cy.contains('div.card-body', '素泊まり')
+      .contains('このプランで予約').click()
   })
 })
-
 ```
 
 ---
 
-# 続きを書いていきます
+# 考えてみよう
+
+## このコードは読みやすい？
 
 ```js
-- `宿泊予約` をクリック
-- `このプランで予約` をクリック
+cy.contains('div.card-body', '素泊まり')
+  .contains('このプランで予約').click()
 ```
 
-考えてみよう
-
-- 「宿泊予約」というリンクはページのどこにあるのか？
-- 「このプランで予約」というボタンはページのどこにあるのか？
-- どのプランを予約すべきか？
+- `div.card-body` なんて、元のテスト設計にあったっけ？
+- `div.card-body` がどのUIに対応してるか、後で思い出せる？
 
 ---
 
-# こうあるべき
+# 😩 よくない臭いがするぞ！
 
-```js
-- `メニューバー` の `宿泊予約` をクリック
-- `素泊まり` を含む `宿泊プラン` の `このプランで予約` をクリック
-```
-
-テストコードはこう書ける
-
-```js
-cy.get('nav').within(() => {
-  cy.contains('宿泊予約').click()
-})
-cy.get('div.card-body').contains('素泊まり').within(() => {
-  cy.contains('このプランで予約').click()
-})
-```
-
-しかし、 後者の例はちょっと良くなさそう…… 🤔
+テスト設計に**出てこない言葉**がテストコードに出てきたら、
+テストコードからその箇所を**分離**すべきかも
 
 ---
 
-# テストしにくい要素
+# カスタムコマンドを追加する
 
-![card](images/card.png)
-
-このコンポーネントは `div.card-body` というセレクタで取れるが
-
-- `div` はセマンティックなタグではない
-- `card-body` というクラスはデザインの変更で変わりうる
-
-どちらも不安定さをもたらす
-
----
-
-# テストしにくい要素に出会ったら
-
-- テストしやすいようにアプリケーション側を修正する
-- テストコード側で工夫する
-
----
-
-# コンポーネントを抽象化する
-
-このコンポーネントを `card` と名付けて、テストコード間で再利用する
-もしアプリケーション側が変更されても修正箇所は1箇所で済む
-
----
-
-# Custom Command の定義
-
-`cypress/support/commands.js` に以下を追記する
+`cypress/support/commands.js` に以下を追加する
 
 ```js
 Cypress.Commands.add("getCardByText", (text) => {
@@ -604,23 +382,202 @@ Cypress.Commands.add("getCardByText", (text) => {
 });
 ```
 
----
-
 こう書けるようになった
 
 ```js
-cy.getCardByText('素泊まり').within(() => {
-  cy.contains('このプランで予約').click()
+// before
+cy.contains('div.card-body', '素泊まり')
+  .contains('このプランで予約').click()
+
+// after
+cy.getCardByText('素泊まり').contains('このプランで予約').click()
+```
+
+---
+
+# さらに別の問題
+
+**このプランで予約** は新しいウィンドウを開くが
+Cypressは *複数ウィンドウのテストに対応していない*
+
+---
+
+# 新しいウィンドウを開かないようにする
+
+```js
+
+cy.getCardByText('素泊まり')
+  .contains('このプランで予約')
+  .invoke('removeAttr', 'target')
+
+```
+
+リンクから「新しいウィンドウを開く」ための指定 `target="_blank"` を除く
+
+参考: https://testersdock.com/cypress-new-window/
+
+---
+
+# 新たなカスタムコマンドを定義しよう
+
+**予約プランを開く** カスタムコマンドを定義する
+
+```js
+Cypress.Commands.add("openReservationPlan", (planName) => {
+  const buttonText = "このプランで予約"
+  cy
+    .getCardByText(planName)
+    .contains(buttonText)
+    .invoke("removeAttr", "target")
+    .click()
 })
 ```
 
-`card` のスタイルが変わっても、一箇所修正するだけでOKになった
+テストコードはこう書ける
+
+```js
+// before
+cy.getCardByText('素泊まり').contains('このプランで予約').click()
+
+// after
+cy.openReservationPlan('素泊まり')
+```
 
 ---
 
+# なんかめんどくさいね？
+
+E2Eテストを書くこと自体は簡単ですが
+
+- ツールの技術的制約の回避
+- テストしづらいコンポーネントの操作
+
+などはやっぱりめんどくさい（そしてどうしようもない）
+
+---
+
+# なんでわざわざ Custom Command とか使うの？
+
+テストスクリプトから *ユーザー操作と無関係な部分* を切り離す
+
+- 可読性の向上
+- ポータビリティの向上
+
+めんどくさい部分はどうしても出てくるので
+そこを上手く隠せると読みやすいコードになる
+
+---
+
+# 続けて書いていきましょう
+
+- テスト対象のサイトにアクセス
+- 宿泊プランを選択
+- *宿泊予約*
+- *予約内容の確認*
+
+---
+
+# その前に
+
+フォームに対する操作の場合、 `contains` では上手く動かない場合がある
+
+- 普通の入力フォームであればOK
+- セレクトボックスやチェックボックスはNG
+
+`contains` で取得できる要素は厳密には `label` 要素なので上手く取得できないかも
+
+---
+
+# 宿泊予約
+
+
+```js
+cy.getByLabel('宿泊日').type('2022-02-12')
+cy.getByLabel('宿泊数').type('7')
+cy.getByLabel('人数').type('1')
+cy.getByLabel('朝食バイキング').check()
+cy.getByLabel('氏名').type('ジャスト 太郎')
+cy.getByLabel('確認のご連絡').select('希望しない')
+cy.contains('予約内容を確認する').click()
+```
+
+---
+
+# 上手く行かなかった
+
+![2022-02-15-03-33-39](images/2022-02-15-03-33-39.png)
+
+- 元々入力されているテキストに追記してしまった
+- カレンダーウィジェットが表示されたまま
+
+---
+
+# 対処
+
+```js
+
+// 「宿泊日」フィールドに入っている値を一度全て消す
+cy.getByLabel('宿泊日').type('{selectall}{backspace}')
+
+// 入力の後に ESC キーを押下してカレンダーウィジェットを消す
+cy.getByLabel('宿泊日').type('2022/02/12{esc}')
+
+```
+
+---
+
+# これもカスタムコマンドにしてしまえ
+
+値を一度削除してから入力する `fill` メソッドを定義する
+
+```js
+Cypress.Commands.add("fill", { prevSubject: 'element' }, (subject, text) => {
+  subject.type("{selectall}{backspace}");
+  subject(text)
+})
+```
+
+テストコードはこうなる
+
+```js
+cy.getByLabel('宿泊日').fill('2022/02/21{esc}')
+```
+
+---
+
+# 予約内容の確認
+
+TBD
+
+---
+
+# いかがでしたか
+
+- Cypressは拡張性が高く、テストコードをきれいに記述するのに充分な機能を備えています
+- 反面、複数ウィンドウを利用するサイトのテストなど、対応していないサイトのテストにはコツが要ります
+- まずは触ってみて、自分のプロジェクトに適用可能か確かめてみましょう
+---
+
+
+# おさらい: わかりやすいテストコードを書くコツ
+
+## ユーザー目線の表記を心がける
+
+サイトの内部構造を使わず、表示されたテキストで選択する
+## あいまいな部分を減らす
+
+「xxの中のyy」というように指定して、要素探索の範囲を絞り込む
+
+## 「何をテストしているのか」と「どうテストするのか」を分ける
+
+カスタムコマンドを上手く使って、
+処理やUIコンポーネントに名前を付ける
+
+
 
 
 ---
+
 
 おまけ
 

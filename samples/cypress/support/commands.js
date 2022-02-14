@@ -31,3 +31,17 @@ Cypress.Commands.add("getCardByText", (text) => {
   const selector = 'div.card-body'
   cy.contains(selector, text)
 });
+
+Cypress.Commands.add("openReservationPlan", (planName) => {
+  const buttonText = "このプランで予約"
+  cy
+    .getCardByText(planName)
+    .contains(buttonText)
+    .invoke("removeAttr", "target")
+    .click()
+})
+
+Cypress.Commands.add("fill", { prevSubject: 'element' }, (subject, text) => {
+  cy.wrap(subject).clear()
+  cy.wrap(subject).type(text)
+})
