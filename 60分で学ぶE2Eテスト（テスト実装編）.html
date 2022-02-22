@@ -178,8 +178,6 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 </ul>
 </li>
 </ul>
-<p>スライドのおわりにおまけを付けておきます<br />
-（予稿集のおわりにもあります）</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-theme="hegel" style="--theme:hegel;">
 <h1>テストに使うツール</h1>
@@ -194,7 +192,9 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-theme="hegel" style="--theme:hegel;">
 <h1>準備</h1>
 <h2>NodeJSのインストール</h2>
-<p>Macの場合は以下</p>
+<p>公式サイトからダウンロードしてください</p>
+<p><a href="https://nodejs.org/ja/">https://nodejs.org/ja/</a></p>
+<p>または、Macで <code>brew</code> コマンドが使える人はこちらでもOK</p>
 <pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ brew install node
 </span></span></foreignObject></svg></code></pre>
 </section>
@@ -270,21 +270,22 @@ $ npm install cypress @testing-library/cypress
 <h1>テストコードを書いてみよう</h1>
 &lt;div class="columns"&gt;
 &lt;div&gt;
-<h2>宿泊予約サイトにアクセス</h2>
-<pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>- <span class="hljs-string">`宿泊予約`</span> をクリック
-</span></span></foreignObject></svg></code></pre>
+<p><img src="images/%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89%E3%80%8C%E5%AE%BF%E6%B3%8A%E4%BA%88%E7%B4%84%E3%80%8D%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF.png" alt="メニューバーから「宿泊予約」をクリック" /></p>
 &lt;/div&gt;
 &lt;div&gt;
 <p>Cypressでは <code>contain()</code> を使って<br />
 特定の文字を含む要素を指定できる</p>
-<pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.contain(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
+<pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>- <span class="hljs-string">`宿泊予約`</span> をクリック
+
+↓
+
+cy.contain(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
 </span></span></foreignObject></svg></code></pre>
 &lt;/div&gt;
 &lt;/div&gt;
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコードを書いてみよう</h1>
-<h2>宿泊予約サイトにアクセス</h2>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
 
@@ -347,7 +348,7 @@ smoke_test.jsをクリック</p>
 &lt;/div&gt;
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-theme="hegel" style="--theme:hegel;">
-<h1>込み入った処理を表現する</h1>
+<h1>試しに書いてみよう</h1>
 <p><code>素泊まり</code> を含む <code>宿泊プラン</code> の <code>このプランを選択</code> をクリックする</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
 cy.contains(<span class="hljs-string">&#x27;素泊まり&#x27;</span>).contains(<span class="hljs-string">&#x27;このプランで予約&#x27;</span>).click()
@@ -372,6 +373,7 @@ cy.contains(<span class="hljs-string">&#x27;素泊まり&#x27;</span>).contains(
 <h3>実際</h3>
 <p><strong>素泊まり</strong> というテキストを含む<br />
 <em>見出し</em> が取得された</p>
+&lt;/div&gt;
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-theme="hegel" style="--theme:hegel;">
 <h1>探索の範囲を絞り込む</h1>
@@ -485,8 +487,8 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;素泊まり&#x27;</span>
 <h1>なんでわざわざ Custom Command とか使うの？</h1>
 <p>テストスクリプトから <em>ユーザー操作と無関係な部分</em> を切り離す</p>
 <ul>
-<li>可読性の向上</li>
-<li>ポータビリティの向上</li>
+<li>自動化の都合でやらなければいけない処理（例: 新規ウィンドウを抑制する）</li>
+<li>サイトの構造を表現するのに必要な記述（例: CSSセレクタ）</li>
 </ul>
 <p>めんどくさい部分はどうしても出てくるので<br />
 そこを上手く隠せると読みやすいコードになる</p>
@@ -501,15 +503,67 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;素泊まり&#x27;</span>
 </ul>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-theme="hegel" style="--theme:hegel;">
-<h1>その前に</h1>
-<p>フォームに対する操作の場合、 <code>contains</code> では上手く動かない場合がある</p>
-<ul>
-<li>普通の入力フォームであればOK</li>
-<li>セレクトボックスやチェックボックスはNG</li>
-</ul>
-<p><code>contains</code> で取得できる要素は厳密には <code>label</code> 要素なので上手く取得できないかも</p>
+<h1>宿泊予約</h1>
+&lt;div class="columns"&gt;
+&lt;div&gt;
+<p><img src="images/%E5%AE%BF%E6%B3%8A%E4%BA%88%E7%B4%84%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0.png" alt="" /></p>
+&lt;/div&gt;
+&lt;div&gt;
+<p>フォーム入力が多い</p>
+<p>どうやって目当てのフォームに<br />
+入力するか？</p>
+&lt;/div&gt;
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-theme="hegel" style="--theme:hegel;">
+<h1>HTMLのフォームの仕組みについておさらい</h1>
+<pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>お名前<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> /&gt;</span>
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li><code>label</code> と <code>input</code> で出来ていることが多い</li>
+<li><code>label</code> に <code>for</code> 属性を付けると <code>label</code> と <code>input</code> が紐付けられる</li>
+<li><code>label</code> をクリックすると <code>input</code> にフォーカスが移る</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="hegel" style="--theme:hegel;">
+<h1>Cypressではどう扱われるか</h1>
+<p><code>contains</code> で取得できる要素は厳密には <code>label</code> 要素なので<br />
+フォームに対する操作の場合、 <code>contains</code> では上手く動かない場合がある</p>
+<ul>
+<li>普通の入力フォームへの入力はOK</li>
+<li>セレクトボックスやチェックボックスはNG
+<ul>
+<li>Clickableな要素として扱われない</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="hegel" style="--theme:hegel;">
+<h1>ラベルのテキストからinput要素を見つける</h1>
+<p>そんなコマンドがあったらいいのにね</p>
+<pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>お名前<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> /&gt;</span>
+</span></span></foreignObject></svg></code></pre>
+<pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
+<span class="hljs-comment">// labelが返ってくる</span>
+cy.contains(<span class="hljs-string">&quot;お名前&quot;</span>)
+
+<span class="hljs-comment">// inputが返ってくる</span>
+cy.getByLabel(<span class="hljs-string">&quot;お名前&quot;</span>)
+
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="hegel" style="--theme:hegel;">
+<h1>カスタムコマンド <code>getByLabel</code> の使用</h1>
+<p>インストール</p>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ npm i -D cypress-get-by-label
+</span></span></foreignObject></svg></code></pre>
+<p><code>cypress/support/commands.js</code> に以下を追加</p>
+<pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">const</span> { registerCommand } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;cypress-get-by-label&quot;</span>);
+registerCommand();
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="hegel" style="--theme:hegel;">
 <h1>宿泊予約</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span class="hljs-string">&#x27;2022-02-12&#x27;</span>)
 cy.getByLabel(<span class="hljs-string">&#x27;宿泊数&#x27;</span>).type(<span class="hljs-string">&#x27;7&#x27;</span>)
@@ -520,15 +574,15 @@ cy.getByLabel(<span class="hljs-string">&#x27;確認のご連絡&#x27;</span>).s
 cy.contains(<span class="hljs-string">&#x27;予約内容を確認する&#x27;</span>).click()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="hegel" style="--theme:hegel;">
 <h1>上手く行かなかった</h1>
 <p><img src="images/2022-02-15-03-33-39.png" alt="2022-02-15-03-33-39" /></p>
 <ul>
-<li>元々入力されているテキストに追記してしまった</li>
+<li>元々入力されているテキストに<strong>追記</strong>してしまった</li>
 <li>カレンダーウィジェットが表示されたまま</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="hegel" style="--theme:hegel;">
 <h1>対処</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
 <span class="hljs-comment">// 「宿泊日」フィールドに入っている値を一度全て消す</span>
@@ -539,7 +593,7 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
 
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="hegel" style="--theme:hegel;">
 <h1>これもカスタムコマンドにしてしまえ</h1>
 <p>値を一度削除してから入力する <code>fill</code> メソッドを定義する</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>Cypress.Commands.add(<span class="hljs-string">&quot;fill&quot;</span>, { <span class="hljs-attr">prevSubject</span>: <span class="hljs-string">&#x27;element&#x27;</span> }, <span class="hljs-function">(<span class="hljs-params">subject, text</span>) =&gt;</span> {
@@ -551,11 +605,11 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).fill(<span class="hljs-string">&#x27;2022/02/21{esc}&#x27;</span>)
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="hegel" style="--theme:hegel;">
 <h1>予約内容の確認</h1>
-<p>TBD</p>
+<p>詳しくはセッションで！</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="hegel" style="--theme:hegel;">
 <h1>いかがでしたか</h1>
 <ul>
 <li>Cypressは拡張性が高く、テストコードをきれいに記述するのに充分な機能を備えています</li>
@@ -563,7 +617,7 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
 <li>まずは触ってみて、自分のプロジェクトに適用可能か確かめてみましょう</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="hegel" style="--theme:hegel;">
 <h1>おさらい: わかりやすいテストコードを書くコツ</h1>
 <h2>ユーザー目線の表記を心がける</h2>
 <p>サイトの内部構造を使わず、表示されたテキストで選択する</p>
@@ -572,98 +626,6 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
 <h2>「何をテストしているのか」と「どうテストするのか」を分ける</h2>
 <p>カスタムコマンドを上手く使って、<br />
 処理やUIコンポーネントに名前を付ける</p>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="hegel" style="--theme:hegel;">
-<p>おまけ</p>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="hegel" style="--theme:hegel;">
-<h1>利用する技術の選定</h1>
-<p>いくつか軸があります</p>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="hegel" style="--theme:hegel;">
-<h1>利用する技術の選定</h1>
-<h2>クロスブラウザ・クロスデバイスはどのぐらい必要？</h2>
-<table>
-<thead>
-<tr>
-<th>やるやら</th>
-<th>フレームワーク</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>いらない</td>
-<td>Cypress</td>
-</tr>
-<tr>
-<td>いる</td>
-<td>PlayWright</td>
-</tr>
-<tr>
-<td>超いる</td>
-<td>Selenium</td>
-</tr>
-</tbody>
-</table>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="hegel" style="--theme:hegel;">
-<h3>参考: クロスブラウザ・クロスデバイスについて</h3>
-<ul>
-<li>「いろんなブラウザでテスト出来たほうがいいじゃん」と思ってしまうのが人の常</li>
-<li>実際は自動テストを使おうが使わまいがクロスブラウザ対応はしんどい
-<ul>
-<li>IE対応が辛いのはテストが辛いからじゃない、IEが辛いからだ</li>
-<li><strong>おまえは本当にIEについて良く理解しながらIEに対応しているのか？</strong></li>
-</ul>
-</li>
-<li>クロスブラウザテストできる ≠ クロスブラウザテストが <strong>期待通り</strong> 動く
-<ul>
-<li>自動化レイヤーのバグを踏むことも多い</li>
-</ul>
-</li>
-<li>nice to have でクロスブラウザに手を出さないこと
-<ul>
-<li>お兄さんとの約束だよ</li>
-</ul>
-</li>
-</ul>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-theme="hegel" style="--theme:hegel;">
-<h1>利用する技術の選定</h1>
-<h2>テストコードを読むのは開発者だけか？</h2>
-<ul>
-<li>開発者だけ → 普通のテストツールで良い</li>
-<li>チームみんなで読む → BDD系のツールを使う</li>
-</ul>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-theme="hegel" style="--theme:hegel;">
-<h3>参考: BDD (Behavior Driven Development)</h3>
-<ul>
-<li>自然言語でプロダクトの <strong>振る舞い</strong> を記述するためのツール
-<ul>
-<li>独自の <strong>自然言語っぽい</strong> 記述を使うもの</li>
-<li>Markdown を使うもの</li>
-</ul>
-</li>
-<li>チーム全体でプロダクトの振る舞いを考えて、それを自動化するためのもの</li>
-<li>ノーコードのツールとは違う
-<ul>
-<li>プログラミング不要でテスト自動化できるツールは志向していない</li>
-</ul>
-</li>
-<li>今日はこの話はしません
-<ul>
-<li>が、ここはここで <em>かなりアツい</em> 領域……</li>
-<li>この話がしたいひとは後で声かけてください</li>
-</ul>
-</li>
-</ul>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-theme="hegel" style="--theme:hegel;">
-<p>今回は</p>
-<p><strong>クロスブラウザは割り切る</strong> し、</p>
-<p><strong>テストコードは開発者がメンテする</strong> ということで、</p>
-<p><em>Cypress</em> にします</p>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstElementChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
 </script></foreignObject></svg></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@1.6.0/lib/bespoke.js.LICENSE.txt */
