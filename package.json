@@ -1,0 +1,31 @@
+{
+  "name": "jasst22-tokyo",
+  "version": "1.0.0",
+  "description": "JaSST'22 Tokyo 60分で学ぶE2Eテスト スライド",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx marp",
+    "build-pdf": "npx marp --pdf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsuemura/jasst22-tokyo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsuemura/jasst22-tokyo/issues"
+  },
+  "homepage": "https://github.com/tsuemura/jasst22-tokyo#readme",
+  "marp": {
+    "inputDir": "./slides",
+    "output": "./dist",
+    "themeSet": "./marpstyle/style",
+    "html": true,
+    "allowLocalFiles": true
+  },
+  "dependencies": {
+    "@marp-team/marp-cli": "^1.7.0"
+  }
+}
