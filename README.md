@@ -14,7 +14,7 @@ slides|スライド
 
 ## スライドの追加とビルド
 
-リポジトリを `--submodule` オプション付きでcloneします。 `--submodule` を付けないとテーマが適用されません。
+リポジトリを `--recursive` オプション付きでcloneします。 `--recursive` を付けないとテーマが適用されません。
 
 ```bash
 $ git clone --recursive https://github.com/tsuemura/jasst22-tokyo.git
