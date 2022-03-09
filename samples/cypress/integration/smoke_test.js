@@ -12,7 +12,8 @@ describe("スモークテスト", () => {
       cy.contains("宿泊予約").click();
 
       // 3. 宿泊プラン一覧から「お得な特典付きプラン」の「このプランで予約」を選択
-      cy.openReservationPlan("お得な特典付きプラン");
+      cy.contains("お得な特典付きプラン").contains("このプランで予約").click();
+      // cy.openReservationPlan("お得な特典付きプラン");
 
       cy.wait(1000);
 
