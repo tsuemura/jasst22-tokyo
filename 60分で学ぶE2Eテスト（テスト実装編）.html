@@ -154,33 +154,23 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 /***************** COMMON STRUCTURE **********************/div#p>svg>foreignObject>section:not(a){font-family: ;font-weight:initial}div#p>svg>foreignObject>section.titlepage .author,div#p>svg>foreignObject>section.titlepage .date,div#p>svg>foreignObject>section.titlepage .organization{text-align:left}div#p>svg>foreignObject>section *{font-family:sans-serif}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#p>svg>foreignObject>section[data-marpit-advanced-background=content],div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id="p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-theme="hegel" style="--theme:hegel;">
 <h1>60分で学ぶE2Eテスト（テスト実装編）</h1>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-theme="hegel" style="--theme:hegel;"></section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-theme="hegel" style="--theme:hegel;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./images/suemura.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="55%" height="720"><section id="3" data-theme="hegel" style="--theme:hegel;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-theme="hegel" style="--theme:hegel;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./images/suemura.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="55%" height="720"><section id="2" data-theme="hegel" style="--theme:hegel;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
 <h1>自己紹介：末村拓也</h1>
 
 <ul>
-<li>Technical Support Engineer @ Autify, Inc.
-<ul>
-<li>色々なWebアプリとブラウザの相性問題を解決していく仕事</li>
-</ul>
-</li>
+<li>Test Automation Specialist @ Autify, Inc.</li>
 <li>JaSST Online 実行委員</li>
 </ul>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-theme="hegel" style="--theme:hegel;">
-<h1>今日お伝えしたいこと</h1>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-theme="hegel" style="--theme:hegel;">
+<h1>今日やること</h1>
 <ul>
-<li>テスト自動化そのものは難しくありません</li>
-<li>自動化の最大の目的は、自動化を通じて <strong>あいまいな部分をなくす</strong> ことです
-<ul>
-<li>あいまいな部分が残っていると、不安定で読みにくいコードになります</li>
+<li>テストツール <code>Cypress</code> を使った、E2Eテスト実装の流れを紹介</li>
+<li>保守性が高く読みやすいコードの書き方</li>
 </ul>
-</li>
-<li><strong>ユーザー目線で書いた</strong> E2Eテストコードは開発を助ける資産になります</li>
-</ul>
-<p><em>あいまいさを排除した、ユーザー目線のテストコードの書き方</em> をお伝えします</p>
+<p>コードを書くところにフォーカスします</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-theme="hegel" style="--theme:hegel;">
 <h1>今日お話しできないこと</h1>
 <ul>
 <li>自動化の技術選定をどのように行うか</li>
@@ -190,7 +180,11 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 <li>コマンドラインの使い方</li>
 </ul>
 </li>
+<li>CI/CDなど、開発サイクルの中で自動テストを活かす方法</li>
 </ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-theme="hegel" style="--theme:hegel;">
+<h1>準備</h1>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-theme="hegel" style="--theme:hegel;">
 <h1>テストに使うツール</h1>
@@ -203,8 +197,7 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 </ul>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-theme="hegel" style="--theme:hegel;">
-<h1>準備</h1>
-<h2>NodeJSのインストール</h2>
+<h1>NodeJSのインストール</h1>
 <p>公式サイトからダウンロードしてください</p>
 <p><a href="https://nodejs.org/ja/">https://nodejs.org/ja/</a></p>
 <p>または、Macで <code>brew</code> コマンドが使える人はこちらでもOK</p>
@@ -212,8 +205,7 @@ section.cool-list ol > li > em:hover:before,section.cool-list ol > li > a:hover:
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-theme="hegel" style="--theme:hegel;">
-<h1>準備</h1>
-<h2>インストール</h2>
+<h1>CodeceptJSのインストール</h1>
 <p>コマンドラインで以下を実行</p>
 <pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ mkdir jasst22tokyo
 $ <span class="hljs-built_in">cd</span> jasst22tokyo
@@ -235,7 +227,10 @@ $ npm install cypress
 <p>テストを実行すると実行結果が細かく表示されます</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-theme="hegel" style="--theme:hegel;">
-<h1>早速書いていきます</h1>
+<h1>テストコードを書いてみよう</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-theme="hegel" style="--theme:hegel;">
+<h1>テストケース</h1>
 <ol>
 <li><em>非会員で予約</em></li>
 <li>会員登録→予約→ログアウト</li>
@@ -245,7 +240,7 @@ $ npm install cypress
 <li>非会員の画面に一般・プレミアム会員限定プランが表示されないこと</li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-theme="hegel" style="--theme:hegel;">
 <h1>非会員で予約するシナリオの手順(1/2)</h1>
 <ol>
 <li><a href="https://hotel.testplanisphere.dev/ja/">https://hotel.testplanisphere.dev/ja/</a> を開く</li>
@@ -256,10 +251,9 @@ $ npm install cypress
 <li>人数を2に設定</li>
 <li>朝食バイキング、昼からチェックインプラン、お得な観光プランを選択</li>
 <li>氏名に「テスト太郎」を入力</li>
-<li></li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-theme="hegel" style="--theme:hegel;">
 <h1>非会員で予約するシナリオの手順(2/2)</h1>
 <ol start="9">
 <li>確認のご連絡をメールに設定</li>
@@ -279,7 +273,7 @@ $ npm install cypress
 </li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコードを書いてみよう</h1>
 <p><code>cypress/integration/smoke_test.js</code> を作成</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
@@ -294,7 +288,7 @@ $ npm install cypress
 </span></span></foreignObject></svg></code></pre>
 <p><code>describe 〜 it</code> は「何をテストするのか」を書く部分</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-theme="hegel" style="--theme:hegel;">
 <p>設計したテスト手順をそのままコメントとして書いちゃえ</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
@@ -311,7 +305,7 @@ $ npm install cypress
     <span class="hljs-comment">// 11. ご要望・ご連絡事項に「テスト」と入力</span>
     <span class="hljs-comment">// 12. 予約内容を確認するボタンを選択</span>
     <span class="hljs-comment">// 13. 宿泊予約確認画面で、以下を確認</span>
-    <span class="hljs-comment">//     1.  合計金額が121,000円であること</span>
+    <span class="hljs-comment">//     1.  合計金額が123,000円であること</span>
     <span class="hljs-comment">//     2.  期間、人数、追加プラン、お名前、確認のご連絡、ご要望・ご連絡が入力通りになっていること</span>
     <span class="hljs-comment">// 14. この内容で予約するボタンを選択し、以下を確認</span>
     <span class="hljs-comment">//     1.  予約が完了しましたダイアログが表示されること</span>
@@ -319,7 +313,7 @@ $ npm install cypress
 })
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコードを書いてみよう</h1>
 <h2>テスト対象のサイトにアクセス</h2>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
@@ -336,8 +330,12 @@ $ npm install cypress
 <li><code>cy.visit()</code> は指定したURLに移動するコマンド</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコードを書いてみよう</h1>
+<div class="columns">
+<div>
+<p><img src="images/%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89%E3%80%8C%E5%AE%BF%E6%B3%8A%E4%BA%88%E7%B4%84%E3%80%8D%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF.png" alt="メニューバーから「宿泊予約」をクリック" /></p>
+</div><div>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
 
@@ -345,31 +343,35 @@ $ npm install cypress
     cy.visit(<span class="hljs-string">&quot;https://hotel.testplanisphere.dev/ja/index.html&quot;</span>);
 
     <span class="hljs-comment">// 2. メニューから「宿泊予約」を選択  ←イマココ</span>
-
+    cy.■■■■■■.click()
   })
 })
 </span></span></foreignObject></svg></code></pre>
+<p>クリックは <code>click()</code> でOK<br />
+宿泊予約、というリンクを<br />
+どうやって指定する？</p>
+</div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコードを書いてみよう</h1>
 <div class="columns">
 <div>
 <p><img src="images/%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89%E3%80%8C%E5%AE%BF%E6%B3%8A%E4%BA%88%E7%B4%84%E3%80%8D%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF.png" alt="メニューバーから「宿泊予約」をクリック" /></p>
 </div>
 <div>
-<p>Cypressでは <code>contain()</code> を使って<br />
+<p>Cypressでは <code>contains()</code> を使って<br />
 特定の文字を含む要素を指定できる</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>- <span class="hljs-string">`宿泊予約`</span> をクリック
 
 ↓
 
-cy.contain(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
+cy.contains(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
 </span></span></foreignObject></svg></code></pre>
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-theme="hegel" style="--theme:hegel;">
-<h1>テストコードを書いてみよう</h1>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-theme="hegel" style="--theme:hegel;">
+<h1>現在のテストコード</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
 
@@ -382,7 +384,7 @@ cy.contain(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
 })
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-theme="hegel" style="--theme:hegel;">
 <h1>自動化は難しくない</h1>
 <p>テスト手順をそのまま1:1対応でプログラミングすれば、それがテストコード</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
@@ -402,7 +404,7 @@ cy.contains(<span class="hljs-string">&#x27;宿泊予約&#x27;</span>).click()
 
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-theme="hegel" style="--theme:hegel;">
 <h1>実際に動かしてみよう</h1>
 <div class="columns">
 <div>
@@ -417,12 +419,13 @@ $ npx cypress open
 smoke_test.jsをクリック</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-theme="hegel" style="--theme:hegel;">
 <p><img src="images/2022-02-10-06-54-32.png" alt="2022-02-10-06-54-32" /><br />
 ブラウザが開いて、URLに遷移できた</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-theme="hegel" style="--theme:hegel;">
-<h1>宿泊プランの選択</h1>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-theme="hegel" style="--theme:hegel;">
+<h1>続けて書いていきましょう</h1>
+<h2>宿泊プランの選択</h2>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
 
@@ -438,7 +441,7 @@ smoke_test.jsをクリック</p>
 })
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-theme="hegel" style="--theme:hegel;">
 <h1>宿泊プランの選択</h1>
 <div class="columns-center">
 <div>
@@ -449,7 +452,7 @@ smoke_test.jsをクリック</p>
 「お得な特典付きプラン」を選択したい</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-theme="hegel" style="--theme:hegel;">
 <h1>試しに書いてみよう</h1>
 <p><code>お得な特典付きプラン</code> を含む <code>宿泊プラン</code> の <code>このプランを選択</code> をクリックする</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
@@ -458,22 +461,22 @@ cy.contains(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;
 </span></span></foreignObject></svg></code></pre>
 <p>このコードで動くかな……？ <img class="emoji" draggable="false" alt="🤔" src="https://twemoji.maxcdn.com/2/svg/1f914.svg" data-marp-twemoji=""/></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-theme="hegel" style="--theme:hegel;">
 <h1>目当ての要素が見つからない</h1>
 <p><img src="images/2022-02-10-08-31-56.png" alt="2022-02-10-08-31-56" /></p>
 <p><code>cy.contains('お得な特典付きプラン')</code> が <code>h5</code> 要素にマッチしてしまったのが原因</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-theme="hegel" style="--theme:hegel;">
 <h1>ページの構造を見てみよう</h1>
 <p>テスト結果の画面でそのまま開発者コンソールを開けます<br />
 右クリック→Inspect</p>
-<p><img src="images/%E9%96%8B%E7%99%BA%E8%80%85%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB.png" alt="開発者コンソール" /></p>
+<p><img src="images/developerconsole.png" alt="developerconsole" /></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-theme="hegel" style="--theme:hegel;">
 <h1>探索の範囲を絞り込む</h1>
 <div class="columns">
 <div>
-<p><img src="images/card.png" alt="" /></p>
+<p><img src="images/card-body.png" alt="card-body" /></p>
 <ul>
 <li><code>お得な特典付きプラン</code> を含む</li>
 <li><code>宿泊プラン</code> の</li>
@@ -488,11 +491,11 @@ cy.contains(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;
 <em>見出し</em> が取得された</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-theme="hegel" style="--theme:hegel;">
 <h1>探索の範囲を絞り込む</h1>
 <div class="columns">
 <div>
-<p><img src="images/card.png" alt="" /></p>
+<p><img src="images/card-body.png" alt="card-body" /></p>
 </div><div>
 <p>カードを表すclassは <code>card-body</code></p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.contains(<span class="hljs-string">&#x27;div.card-body&#x27;</span>, <span class="hljs-string">&#x27;お得な特典付きプラン&#x27;</span>)
@@ -503,7 +506,7 @@ cy.contains(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;
 <code>div</code> 要素を取得するようになった</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-theme="hegel" style="--theme:hegel;">
 <h1>現在のテストコード</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&#x27;スモークテスト&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   it(<span class="hljs-string">&#x27;非会員で予約&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
@@ -521,7 +524,7 @@ cy.contains(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;
 })
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-theme="hegel" style="--theme:hegel;">
 <h1>考えてみよう</h1>
 <h2>このコードは読みやすい？</h2>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.contains(<span class="hljs-string">&#x27;div.card-body&#x27;</span>, <span class="hljs-string">&#x27;お得な&#x27;</span>)
@@ -533,12 +536,12 @@ cy.contains(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;
 <li>ユーザーは <code>div.card-body</code> というclassを意識することがある？</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-theme="hegel" style="--theme:hegel;">
 <h1><img class="emoji" draggable="false" alt="😩" src="https://twemoji.maxcdn.com/2/svg/1f629.svg" data-marp-twemoji=""/> よくない臭いがするぞ！</h1>
 <p>テスト設計に<strong>出てこない言葉</strong>がテストコードに出てきたら、<br />
 テストコードからその箇所を<strong>分離</strong>すべきかも</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-theme="hegel" style="--theme:hegel;">
 <h1>カスタムコマンドを追加する</h1>
 <p><code>cypress/support/commands.js</code> に以下を追加する</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>Cypress.Commands.add(<span class="hljs-string">&quot;getCardByText&quot;</span>, <span class="hljs-function">(<span class="hljs-params">text</span>) =&gt;</span> {
@@ -555,12 +558,12 @@ cy.contains(<span class="hljs-string">&#x27;div.card-body&#x27;</span>, <span cl
 cy.getCardByText(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;</span>).contains(<span class="hljs-string">&#x27;このプランで予約&#x27;</span>).click()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="hegel" style="--theme:hegel;">
 <h1>さらに別の問題</h1>
 <p><strong>このプランで予約</strong> は新しいウィンドウを開くが<br />
 Cypressは <em>複数ウィンドウのテストに対応していない</em></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="hegel" style="--theme:hegel;">
 <h1>新しいウィンドウを開かないようにする</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
 cy.getCardByText(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;</span>)
@@ -571,7 +574,7 @@ cy.getCardByText(<span class="hljs-string">&#x27;お得な特典付きプラン&
 <p>リンクから「新しいウィンドウを開く」ための指定 <code>target=&quot;_blank&quot;</code> を除く</p>
 <p>参考: <a href="https://testersdock.com/cypress-new-window/">https://testersdock.com/cypress-new-window/</a></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="hegel" style="--theme:hegel;">
 <h1>新たなカスタムコマンドを定義しよう</h1>
 <p><strong>予約プランを開く</strong> カスタムコマンドを定義する</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>Cypress.Commands.add(<span class="hljs-string">&quot;openReservationPlan&quot;</span>, <span class="hljs-function">(<span class="hljs-params">planName</span>) =&gt;</span> {
@@ -591,7 +594,7 @@ cy.getCardByText(<span class="hljs-string">&#x27;お得な特典付きプラン&
 cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプラン&#x27;</span>)
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="hegel" style="--theme:hegel;">
 <h1>なんかめんどくさいね？</h1>
 <p>E2Eテストを書くこと自体は簡単ですが</p>
 <ul>
@@ -600,7 +603,7 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプ�
 </ul>
 <p>などはやっぱりめんどくさい（そしてどうしようもない）</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="hegel" style="--theme:hegel;">
 <h1>なんでわざわざ Custom Command とか使うの？</h1>
 <p>テストスクリプトから <em>ユーザー操作と無関係な部分</em> を切り離す</p>
 <ul>
@@ -610,7 +613,7 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプ�
 <p>めんどくさい部分はどうしても出てくるので<br />
 そこを上手く隠せると読みやすいコードになる</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="hegel" style="--theme:hegel;">
 <h1>続けて書いていきましょう</h1>
 <ol start="4">
 <li>宿泊日を翌月1日に設定</li>
@@ -624,7 +627,7 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプ�
 <li>予約内容を確認するボタンを選択</li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="hegel" style="--theme:hegel;">
 <h1>宿泊予約</h1>
 <div class="columns">
 <div>
@@ -636,7 +639,7 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプ�
 入力するか？</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="hegel" style="--theme:hegel;">
 <h1>HTMLのフォームの仕組みについておさらい</h1>
 <pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>お名前<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> /&gt;</span>
@@ -647,7 +650,7 @@ cy.openReservationPlan(<span class="hljs-string">&#x27;お得な特典付きプ�
 <li><code>label</code> をクリックすると <code>input</code> にフォーカスが移る</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="hegel" style="--theme:hegel;">
 <h1>Cypressではどう扱われるか</h1>
 <pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>お名前<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> /&gt;</span>
@@ -666,7 +669,7 @@ cy.contains(<span class="hljs-string">&quot;お名前&quot;</span>)
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="hegel" style="--theme:hegel;">
 <h1>ラベルのテキストからinput要素を見つける</h1>
 <p>そんなコマンドがあったらいいのにね</p>
 <pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>お名前<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
@@ -679,7 +682,7 @@ cy.contains(<span class="hljs-string">&quot;お名前&quot;</span>)
 cy.getByLabel(<span class="hljs-string">&quot;お名前&quot;</span>)
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-theme="hegel" style="--theme:hegel;">
 <h1>カスタムコマンド <code>getByLabel</code> の使用</h1>
 <p>インストール</p>
 <pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ npm install cypress-get-by-label
@@ -689,7 +692,7 @@ cy.getByLabel(<span class="hljs-string">&quot;お名前&quot;</span>)
 registerCommand();
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-theme="hegel" style="--theme:hegel;">
 <h1>宿泊予約</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span class="hljs-string">&#x27;2022-02-12&#x27;</span>)
 cy.getByLabel(<span class="hljs-string">&#x27;宿泊数&#x27;</span>).type(<span class="hljs-string">&#x27;7&#x27;</span>)
@@ -700,7 +703,7 @@ cy.getByLabel(<span class="hljs-string">&#x27;確認のご連絡&#x27;</span>).s
 cy.contains(<span class="hljs-string">&#x27;予約内容を確認する&#x27;</span>).click()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-theme="hegel" style="--theme:hegel;">
 <h1>上手く行かなかった</h1>
 <p><img src="images/2022-02-15-03-33-39.png" alt="2022-02-15-03-33-39" /></p>
 <ul>
@@ -708,7 +711,7 @@ cy.contains(<span class="hljs-string">&#x27;予約内容を確認する&#x27;</s
 <li>カレンダーウィジェットが表示されたまま</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-theme="hegel" style="--theme:hegel;">
 <h1>対処</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
 <span class="hljs-comment">// 「宿泊日」フィールドに入っている値を一度全て消す</span>
@@ -719,19 +722,19 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
 
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-theme="hegel" style="--theme:hegel;">
 <h1>これもカスタムコマンドにしてしまえ</h1>
 <p>値を一度削除してから入力する <code>fill</code> メソッドを定義する</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>Cypress.Commands.add(<span class="hljs-string">&quot;fill&quot;</span>, { <span class="hljs-attr">prevSubject</span>: <span class="hljs-string">&#x27;element&#x27;</span> }, <span class="hljs-function">(<span class="hljs-params">subject, text</span>) =&gt;</span> {
   subject.clear();
-  subject(text)
+  subject.type(text)
 })
 </span></span></foreignObject></svg></code></pre>
 <p>テストコードはこうなる</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).fill(<span class="hljs-string">&#x27;2022/02/21{esc}&#x27;</span>)
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-theme="hegel" style="--theme:hegel;">
 <h1>宿泊日を翌月1日に設定</h1>
 <p>日付処理をする <code>dayjs</code> というライブラリを使う</p>
 <pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ npm install dayjs
@@ -747,7 +750,7 @@ cy.getByLabel(<span class="hljs-string">&#x27;宿泊日&#x27;</span>).type(<span
     cy.getByLabel(<span class="hljs-string">&quot;宿泊日&quot;</span>).fill(<span class="hljs-string">`<span class="hljs-subst">${checkInDate.format(<span class="hljs-string">&quot;YYYY/MM/DD&quot;</span>)}</span>{esc}`</span>);
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-theme="hegel" style="--theme:hegel;">
 <h1>この日付が表す意味を表現する</h1>
 <p><code>context</code> はテストコードに「文脈」を与える</p>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
@@ -762,7 +765,7 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
 
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-theme="hegel" style="--theme:hegel;">
 <h1>現在のテストコード</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <span class="hljs-function">() =&gt;</span> {
 
@@ -793,7 +796,7 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
       cy.getByLabel(<span class="hljs-string">&quot;人数&quot;</span>).fill(<span class="hljs-string">&quot;2&quot;</span>);
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-theme="hegel" style="--theme:hegel;">
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>      <span class="hljs-comment">// 7. 朝食バイキング、昼からチェックインプラン、お得な観光プランを選択</span>
       cy.getByLabel(<span class="hljs-string">&quot;朝食バイキング&quot;</span>).check();
       cy.getByLabel(<span class="hljs-string">&quot;昼からチェックインプラン&quot;</span>).check();
@@ -820,7 +823,7 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
 });
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-theme="hegel" style="--theme:hegel;">
 <h1>予約内容の確認</h1>
 <ol start="13">
 <li>宿泊予約確認画面で、以下を確認
@@ -836,7 +839,7 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
 </li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-theme="hegel" style="--theme:hegel;">
 <h1>アサーション</h1>
 <p><code>should</code> の後に条件を記述する。<br />
 この例では「合計」を含む要素が「123,000円」を含むことを確認している</p>
@@ -844,10 +847,10 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
 </span></span></foreignObject></svg></code></pre>
 <p><a href="https://docs.cypress.io/guides/references/assertions#Common-Assertions">https://docs.cypress.io/guides/references/assertions#Common-Assertions</a></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-theme="hegel" style="--theme:hegel;">
 <h1>テストコード</h1>
 <pre><code class="language-js"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>  <span class="hljs-comment">// 13. 宿泊予約確認画面で、以下を確認</span>
-  <span class="hljs-comment">//     1.  合計金額が121,000円であること</span>
+  <span class="hljs-comment">//     1.  合計金額が123,000円であること</span>
   <span class="hljs-comment">//     2.  期間、人数、追加プラン、お名前、確認のご連絡、ご要望・ご連絡が入力通りになっていること</span>
   cy.contains(<span class="hljs-string">&quot;合計&quot;</span>).should(<span class="hljs-string">&quot;contain&quot;</span>, <span class="hljs-string">&quot;123,000円&quot;</span>);
   cy.contains(<span class="hljs-string">&quot;お得な特典付きプラン&quot;</span>);
@@ -873,24 +876,41 @@ describe(<span class="hljs-string">&quot;スモークテスト&quot;</span>, <sp
   cy.contains(<span class="hljs-string">&quot;予約を完了しました&quot;</span>);
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-theme="hegel" style="--theme:hegel;">
-<h1>いかがでしたか</h1>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-theme="hegel" style="--theme:hegel;">
+<h1>おわりに</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59" data-theme="hegel" style="--theme:hegel;">
+<h1>Cypressについて</h1>
 <ul>
 <li>Cypressは拡張性が高く、テストコードをきれいに記述するのに充分な機能を備えています</li>
 <li>反面、複数ウィンドウを利用するサイトのテストなど、対応していないサイトのテストにはコツが要ります</li>
 <li>まずは触ってみて、自分のプロジェクトに適用可能か確かめてみましょう</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-theme="hegel" style="--theme:hegel;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="60" data-theme="hegel" style="--theme:hegel;">
 <h1>おさらい: わかりやすいテストコードを書くコツ</h1>
-<h2>ユーザー目線の表記を心がける</h2>
+<h3><strong>1. ユーザー目線の表記を心がける</strong></h3>
 <p>サイトの内部構造を使わず、表示されたテキストで選択する</p>
-<h2>あいまいな部分を減らす</h2>
+<h3><strong>2. あいまいな部分を減らす</strong></h3>
 <p>「xxの中のyy」というように指定して、要素探索の範囲を絞り込む</p>
-<h2>「何をテストしているのか」と「どうテストするのか」を分ける</h2>
-<p>カスタムコマンドを上手く使って、<br />
-処理やUIコンポーネントに名前を付ける</p>
+<h3><strong>3. 「何をテストしているのか」と「どうテストするのか」を分ける</strong></h3>
+<p>テストコードから不要な情報を出来るだけ省いて<br />
+シンプルなコードを保つ</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="61" data-theme="hegel" style="--theme:hegel;">
+<h1>ぜひみなさんもトライしてみてください</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="62" data-theme="hegel" style="--theme:hegel;">
+<h1>Enjoy Testing!</h1>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstElementChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
-</script></foreignObject></svg></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@1.7.0/lib/bespoke.js.LICENSE.txt */
+</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="1" tabindex="0"><p>AutifyというE2Eテストのツールを作る会社に勤めています。業務外では、JaSST Onlineという別のJaSSTの実行委員をしたりしています。今日は自分の会社で作ってるツールの話はいっさいしないので、安心して聞いてください。</p></div><div class="bespoke-marp-note" data-index="2" tabindex="0"><p>今日は、CypressというE2Eテストツールを使って、自動テスト実装の流れを紹介していきます。
+その中で、保守性が高く読みやすいコードを書くにはどうすればいいか、みたいなところにも触れたいと思います。</p></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>逆に、今日は技術選定とか、細かいプログラミングの知識とかはあんまり紹介できません。資料は後で公開しますので、聞いてて意味が分からなかった人は、ぜひ後でググりながらやってみてください。
+
+同様に、CI・CDみたいな、自動テストのパワーを最大限に活かすためのツールの話も割愛させていただきます。とはいえ、このあたりの話を避けては良い自動テストは作れないので、もし話が聞きたい方がいましたらAsk the speakerで声かけてください。</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>前の設計編で作ったテストケースを利用します。非会員で予約のテストケースを使います。</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>ここから実際にテストコードを書いていきましょう。プログラミング経験がまったく無い人だとちょっと馴染みのない書き方かもしれませんが、この枠組み自体はおまじないぐらいの気持ちで見てもらって大丈夫です。
+describe, it, という書き方で、いわゆるテストスイートとか、テストケースに当たるようなものを定義していきます。今回は、スモークテスト、つまり「動かしても煙が出ないことを確認する」ぐらいのテストを書いて、その中に「非会員で予約」というテストケースを書いていきます。</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>テストコードを書く時、僕が良く使うテクニックなんですが、設計したテスト手順をそのままコードのコメントとして書いてしまいます。このコメントを下書きのように使って、テストコードを書いていきます。</p></div><div class="bespoke-marp-note" data-index="17" tabindex="0"><p>では、まずはテスト対象のURLに移動するところから書いていきましょう。URLに移動するコマンドは visit です。「〜〜を開く」が「〜〜をたずねる」に変わるだけなので、かんたんですね。</p></div><div class="bespoke-marp-note" data-index="18" tabindex="0"><p>さて、続いて「メニューから宿泊予約を選択」のところを書いていきます。
+visitと同じ要領で、なにかをクリックしたいときはclick()と書けば良いんですが、
+「宿泊予約」ってボタンはどうやって指定したら良いんでしょう？</p></div><div class="bespoke-marp-note" data-index="21" tabindex="0"><p>さて、ここまでの話を聞いて、難しいところってありました？ほとんど、日本語で書いたテスト手順を、そのままテストコードに出来ましたよね。
+テスト自動化、難しいとかめんどくさいとか言われがちなんですが、ただ自動化するだけなら、実はテスト手順をそのまま1:1でプログラミングするだけなんですよ。なので、別に難しいことはなんにもないです。</p></div><div class="bespoke-marp-note" data-index="25" tabindex="0"><p>ここで見てもらいたいんですが、宿泊プランの選択画面にはいくつかの宿泊プランがありますよね。その中で、「お得な特典付きプラン」というプランを選んで、なおかつその中の「このプランで予約」というのをクリックする必要があります。ただ、「このプランで予約」というボタン自体はすべての宿泊プランに存在するんですね。こういうのはどうやって書いたらいいんでしょうか？</p></div><div class="bespoke-marp-note" data-index="26" tabindex="0"><p>というわけで、ここまでやってきたものの応用で、contains, contains, click というような感じでつなげて書いていきましょう。こうやってつなげて書くこと自体は出来るんですが、これで正しい要素がちゃんと取れるでしょうか？</p></div><div class="bespoke-marp-note" data-index="27" tabindex="0"><p>こちらが実際に試してみた結果なんですが、失敗してしまいましたね。条件にマッチする要素が見つかりませんでした。
+エラーメッセージの中に h5 というのが見えてますでしょうか？これはHTMLタグの、見出しを表すものです。「お得な特典付きプラン」という文字を含む要素を探したら、カードの部分じゃなくて、見出しの部分にマッチしちゃったんですね。見出しの中には「このプランで予約」というボタンは無いので、ここでエラーになります。</p></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@1.7.0/lib/bespoke.js.LICENSE.txt */
 !function(){"use strict";const e=document.body,t=(...e)=>history.replaceState(...e),n="presenter",r="next",o=["",n,r],a="data-bespoke-marp-",i=(e,{protocol:t,host:n,pathname:r,hash:o}=location)=>{const a=e.toString();return`${t}//${n}${r}${a?"?":""}${a}${o}`},s=()=>e.dataset.bespokeView,l=e=>new URLSearchParams(location.search).get(e),d=(e,n={})=>{var r;const o={location,setter:t,...n},a=new URLSearchParams(o.location.search);for(const t of Object.keys(e)){const n=e[t];"string"==typeof n?a.set(t,n):a.delete(t)}try{o.setter({...null!==(r=window.history.state)&&void 0!==r?r:{}},"",i(a,o.location))}catch(e){console.error(e)}},c=(()=>{const e="bespoke-marp";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(e){return!1}})(),u=e=>{try{return localStorage.getItem(e)}catch(e){return null}},f=(e,t)=>{try{return localStorage.setItem(e,t),!0}catch(e){return!1}},m=e=>{try{return localStorage.removeItem(e),!0}catch(e){return!1}},g=(e,t)=>{const n="aria-hidden";t?e.setAttribute(n,"true"):e.removeAttribute(n)},p=e=>{e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n="bespoke-marp-active",r=t.slide,o=r.classList,a=!o.contains(n);if(e.slides.forEach((e=>{e.classList.remove(n),g(e,!0)})),o.add(n),g(r,!1),a){const e=`${n}-ready`;o.add(e),document.body.clientHeight,o.remove(e)}}))},v=e=>{let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],o=(r,o)=>{t=r,n=o,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const i=t<r||t===r&&n<=o;e.setAttribute(`${a}fragment`,(i?"":"in")+"active");const s=`${a}current-fragment`;t===r&&n===o?e.setAttribute(s,"current"):e.removeAttribute(s)}))})),e.fragmentIndex=o;const i={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:o};e.fire("fragment",i)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return o(t,n+1),!1;const a=t+1;e.fragments[a]&&o(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return o(t,r-1),!1;const a=e.fragments[t+1];a&&o(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return o(t,n-1),!1;const i=t-1;e.fragments[i]&&o(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const o=e.fragments[t];if(o){const{length:e}=o;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}o(t,r)})),o(0,0)},h=document,y=()=>!(!h.fullscreenEnabled&&!h.webkitFullscreenEnabled),b=()=>!(!h.fullscreenElement&&!h.webkitFullscreenElement),x=e=>{e.fullscreen=()=>{y()&&(async()=>{return b()?null===(e=h.exitFullscreen||h.webkitExitFullscreen)||void 0===e?void 0:e.call(h):((e=h.body)=>{var t;return null===(t=e.requestFullscreen||e.webkitRequestFullscreen)||void 0===t?void 0:t.call(e)})();var e})()},document.addEventListener("keydown",(t=>{"f"!==t.key&&"F11"!==t.key||t.altKey||t.ctrlKey||t.metaKey||!y()||(e.fullscreen(),t.preventDefault())}))},w="bespoke-marp-inactive",k=(e=2e3)=>({parent:t,fire:n})=>{const r=t.classList,o=e=>n(`marp-${e?"":"in"}active`);let a;const i=()=>{a&&clearTimeout(a),a=setTimeout((()=>{r.add(w),o()}),e),r.contains(w)&&(r.remove(w),o(!0))};for(const e of["mousedown","mousemove","touchend"])document.addEventListener(e,i);setTimeout(i,0)},E=["AUDIO","BUTTON","INPUT","SELECT","TEXTAREA","VIDEO"],L=e=>{e.parent.addEventListener("keydown",(e=>{if(!e.target)return;const t=e.target;(E.includes(t.nodeName)||"true"===t.contentEditable)&&e.stopPropagation()}))},$=e=>{window.addEventListener("load",(()=>{for(const t of e.slides){const e=t.querySelector("[data-marp-fitting]")?"":"hideable";t.setAttribute(`${a}load`,e)}}))},S=({interval:e=250}={})=>t=>{document.addEventListener("keydown",(e=>{if(" "===e.key&&e.shiftKey)t.prev();else if("ArrowLeft"===e.key||"ArrowUp"===e.key||"PageUp"===e.key)t.prev({fragment:!e.shiftKey});else if(" "!==e.key||e.shiftKey)if("ArrowRight"===e.key||"ArrowDown"===e.key||"PageDown"===e.key)t.next({fragment:!e.shiftKey});else if("End"===e.key)t.slide(t.slides.length-1,{fragment:-1});else{if("Home"!==e.key)return;t.slide(0)}else t.next();e.preventDefault()}));let n,r,o=0;t.parent.addEventListener("wheel",(a=>{let i=!1;const s=(e,t)=>{e&&(i=i||((e,t)=>((e,t)=>{const n="X"===t?"Width":"Height";return e[`client${n}`]<e[`scroll${n}`]})(e,t)&&((e,t)=>{const{overflow:n}=e,r=e[`overflow${t}`];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r})(getComputedStyle(e),t))(e,t)),(null==e?void 0:e.parentElement)&&s(e.parentElement,t)};if(0!==a.deltaX&&s(a.target,"X"),0!==a.deltaY&&s(a.target,"Y"),i)return;a.preventDefault();const l=Math.sqrt(a.deltaX**2+a.deltaY**2);if(void 0!==a.wheelDelta){if(void 0===a.webkitForce&&Math.abs(a.wheelDelta)<40)return;if(a.deltaMode===a.DOM_DELTA_PIXEL&&l<4)return}else if(a.deltaMode===a.DOM_DELTA_PIXEL&&l<12)return;r&&clearTimeout(r),r=setTimeout((()=>{n=0}),e);const d=Date.now()-o<e,c=l<=n;if(n=l,d||c)return;let u;(a.deltaX>0||a.deltaY>0)&&(u="next"),(a.deltaX<0||a.deltaY<0)&&(u="prev"),u&&(t[u](),o=Date.now())}))},P=(e=".bespoke-marp-osc")=>{const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[${a}osc=${JSON.stringify(e)}]`).forEach(n)};return y()||n("fullscreen",(e=>e.style.display="none")),c||n("presenter",(e=>{e.disabled=!0,e.title="Presenter view is disabled due to restricted localStorage."})),e=>{t.addEventListener("click",(t=>{if(t.target instanceof HTMLElement){const{bespokeMarpOsc:n}=t.target.dataset;n&&t.target.blur();const r={fragment:!t.shiftKey};"next"===n?e.next(r):"prev"===n?e.prev(r):"fullscreen"===n?null==e||e.fullscreen():"presenter"===n&&e.openPresenterView()}})),e.parent.appendChild(t),e.on("activate",(({index:t})=>{n("page",(n=>n.textContent=`Page ${t+1} of ${e.slides.length}`))})),e.on("fragment",(({index:t,fragments:r,fragmentIndex:o})=>{n("prev",(e=>e.disabled=0===t&&0===o)),n("next",(n=>n.disabled=t===e.slides.length-1&&o===r.length-1))})),e.on("marp-active",(()=>g(t,!1))),e.on("marp-inactive",(()=>g(t,!0))),y()&&(e=>{for(const t of["","webkit"])h.addEventListener(t+"fullscreenchange",e)})((()=>n("fullscreen",(e=>e.classList.toggle("exit",y()&&b())))))}},T=e=>{window.addEventListener("message",(t=>{if(t.origin!==window.origin)return;const[n,r]=t.data.split(":");if("navigate"===n){const[t,n]=r.split(",");let o=Number.parseInt(t,10),a=Number.parseInt(n,10)+1;a>=e.fragments[o].length&&(o+=1,a=0),e.slide(o,{fragment:a})}}))};var I=["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"];let N=e=>String(e).replace(/[&<>"']/g,(e=>`&${C[e]};`)),C={"&":"amp","<":"lt",">":"gt",'"':"quot","'":"apos"},A="dangerouslySetInnerHTML",D={className:"class",htmlFor:"for"},M={};function B(e,t){let n=[],r="";t=t||{};for(let e=arguments.length;e-- >2;)n.push(arguments[e]);if("function"==typeof e)return t.children=n.reverse(),e(t);if(e){if(r+="<"+e,t)for(let e in t)!1!==t[e]&&null!=t[e]&&e!==A&&(r+=` ${D[e]?D[e]:N(e)}="${N(t[e])}"`);r+=">"}if(-1===I.indexOf(e)){if(t[A])r+=t[A].__html;else for(;n.length;){let e=n.pop();if(e)if(e.pop)for(let t=e.length;t--;)n.push(e[t]);else r+=!0===M[e]?e:N(e)}r+=e?`</${e}>`:""}return M[r]=!0,r}const K=({children:e})=>B(null,null,...e),O="bespoke-marp-presenter-",q={container:`${O}container`,dragbar:`${O}dragbar-container`,next:`${O}next`,nextContainer:`${O}next-container`,noteContainer:`${O}note-container`,noteWrapper:`${O}note-wrapper`,noteButtons:`${O}note-buttons`,infoContainer:`${O}info-container`,infoPage:`${O}info-page`,infoPageText:`${O}info-page-text`,infoPagePrev:`${O}info-page-prev`,infoPageNext:`${O}info-page-next`,noteButtonsBigger:`${O}note-bigger`,noteButtonsSmaller:`${O}note-smaller`,infoTime:`${O}info-time`,infoTimer:`${O}info-timer`},_=e=>{const{title:t}=document;document.title="[Presenter view]"+(t?` - ${t}`:"");const n={},r=e=>(n[e]=n[e]||document.querySelector(`.${e}`),n[e]);document.body.appendChild((e=>{const t=document.createElement("div");return t.className=q.container,t.appendChild(e),t.insertAdjacentHTML("beforeend",B(K,null,B("div",{class:q.nextContainer},B("iframe",{class:q.next,src:"?view=next"})),B("div",{class:q.dragbar}),B("div",{class:q.noteContainer},B("div",{class:q.noteWrapper}),B("div",{class:q.noteButtons},B("button",{class:q.noteButtonsSmaller,tabindex:"-1",title:"Smaller notes font size"},"Smaller notes font size"),B("button",{class:q.noteButtonsBigger,tabindex:"-1",title:"Bigger notes font size"},"Bigger notes font size"))),B("div",{class:q.infoContainer},B("div",{class:q.infoPage},B("button",{class:q.infoPagePrev,tabindex:"-1",title:"Previous"},"Previous"),B("span",{class:q.infoPageText}),B("button",{class:q.infoPageNext,tabindex:"-1",title:"Next"},"Next")),B("time",{class:q.infoTime,title:"Current time"}),B("time",{class:q.infoTimer,title:"Timer"})))),t})(e.parent)),(e=>{let t=!1;r(q.dragbar).addEventListener("mousedown",(()=>{t=!0,r(q.dragbar).classList.add("active")})),window.addEventListener("mouseup",(()=>{t=!1,r(q.dragbar).classList.remove("active")})),window.addEventListener("mousemove",(e=>{if(!t)return;const n=e.clientX/document.documentElement.clientWidth*100;r(q.container).style.setProperty("--bespoke-marp-presenter-split-ratio",`${Math.max(0,Math.min(100,n))}%`)})),r(q.nextContainer).addEventListener("click",(()=>e.next()));const n=r(q.next),o=(a=n,(e,t)=>{var n;return null===(n=a.contentWindow)||void 0===n?void 0:n.postMessage(`navigate:${e},${t}`,"null"===window.origin?"*":window.origin)});var a;n.addEventListener("load",(()=>{r(q.nextContainer).classList.add("active"),o(e.slide(),e.fragmentIndex),e.on("fragment",(({index:e,fragmentIndex:t})=>o(e,t)))}));const i=document.querySelectorAll(".bespoke-marp-note");i.forEach((e=>{e.addEventListener("keydown",(e=>e.stopPropagation())),r(q.noteWrapper).appendChild(e)})),e.on("activate",(()=>i.forEach((t=>t.classList.toggle("active",t.dataset.index==e.slide())))));let s=0;const l=e=>{s=Math.max(-5,s+e),r(q.noteContainer).style.setProperty("--bespoke-marp-note-font-scale",(1.2**s).toFixed(4))},d=()=>l(1),c=()=>l(-1),u=r(q.noteButtonsBigger),f=r(q.noteButtonsSmaller);u.addEventListener("click",(()=>{u.blur(),d()})),f.addEventListener("click",(()=>{f.blur(),c()})),document.addEventListener("keydown",(e=>{"+"===e.key&&d(),"-"===e.key&&c()}),!0),e.on("activate",(({index:t})=>{r(q.infoPageText).textContent=`${t+1} / ${e.slides.length}`}));const m=r(q.infoPagePrev),g=r(q.infoPageNext);m.addEventListener("click",(t=>{m.blur(),e.prev({fragment:!t.shiftKey})})),g.addEventListener("click",(t=>{g.blur(),e.next({fragment:!t.shiftKey})})),e.on("fragment",(({index:t,fragments:n,fragmentIndex:r})=>{m.disabled=0===t&&0===r,g.disabled=t===e.slides.length-1&&r===n.length-1}));let p=new Date;const v=()=>{const e=new Date,t=e=>`${Math.floor(e)}`.padStart(2,"0"),n=e.getTime()-p.getTime(),o=t(n/1e3%60),a=t(n/1e3/60%60),i=t(n/36e5%24);r(q.infoTime).textContent=e.toLocaleTimeString(),r(q.infoTimer).textContent=`${i}:${a}:${o}`};v(),setInterval(v,250),r(q.infoTimer).addEventListener("click",(()=>{p=new Date}))})(e)},X=e=>{if(!(e=>e.syncKey&&"string"==typeof e.syncKey)(e))throw new Error("The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin.");Object.defineProperties(e,{openPresenterView:{enumerable:!0,value:F},presenterUrl:{enumerable:!0,get:U}}),c&&document.addEventListener("keydown",(t=>{"p"!==t.key||t.altKey||t.ctrlKey||t.metaKey||(t.preventDefault(),e.openPresenterView())}))};function F(){const{max:e,floor:t}=Math,n=e(t(.85*window.innerWidth),640),r=e(t(.85*window.innerHeight),360);return window.open(this.presenterUrl,O+this.syncKey,`width=${n},height=${r},menubar=no,toolbar=no`)}function U(){const e=new URLSearchParams(location.search);return e.set("view","presenter"),e.set("sync",this.syncKey),i(e)}const V=e=>{const t=s();return t===r&&e.appendChild(document.createElement("span")),{"":X,[n]:_,[r]:T}[t]},R=e=>{e.on("activate",(t=>{document.querySelectorAll(".bespoke-progress-parent > .bespoke-progress-bar").forEach((n=>{n.style.flexBasis=100*t.index/(e.slides.length-1)+"%"}))}))},j=e=>{const t=Number.parseInt(e,10);return Number.isNaN(t)?null:t},H=(e={})=>{const t={history:!0,...e};return e=>{let n=!0;const r=e=>{const t=n;try{return n=!0,e()}finally{n=t}},o=(t={fragment:!0})=>{((t,n)=>{const{min:r,max:o}=Math,{fragments:a,slides:i}=e,s=o(0,r(t,i.length-1)),l=o(0,r(n||0,a[s].length-1));s===e.slide()&&l===e.fragmentIndex||e.slide(s,{fragment:l})})((j(location.hash.slice(1))||1)-1,t.fragment?j(l("f")||""):null)};e.on("fragment",(({index:e,fragmentIndex:r})=>{n||d({f:0===r||r.toString()},{location:{...location,hash:`#${e+1}`},setter:(...e)=>t.history?history.pushState(...e):history.replaceState(...e)})})),setTimeout((()=>{o(),window.addEventListener("hashchange",(()=>r((()=>{o({fragment:!1}),d({f:void 0})})))),window.addEventListener("popstate",(()=>{n||r((()=>o()))})),n=!1}),0)}},W=(e={})=>{var n;const r=e.key||(null===(n=window.history.state)||void 0===n?void 0:n.marpBespokeSyncKey)||Math.random().toString(36).slice(2),o=`bespoke-marp-sync-${r}`;var a;a={marpBespokeSyncKey:r},d({},{setter:(e,...n)=>t({...e,...a},...n)});const i=()=>{const e=u(o);return e?JSON.parse(e):Object.create(null)},s=e=>{const t=i(),n={...t,...e(t)};return f(o,JSON.stringify(n)),n},l=()=>{window.removeEventListener("pageshow",l),s((e=>({reference:(e.reference||0)+1})))};return e=>{l(),Object.defineProperty(e,"syncKey",{value:r,enumerable:!0});let t=!0;setTimeout((()=>{e.on("fragment",(e=>{t&&s((()=>({index:e.index,fragmentIndex:e.fragmentIndex})))}))}),0),window.addEventListener("storage",(n=>{if(n.key===o&&n.oldValue&&n.newValue){const r=JSON.parse(n.oldValue),o=JSON.parse(n.newValue);if(r.index!==o.index||r.fragmentIndex!==o.fragmentIndex)try{t=!1,e.slide(o.index,{fragment:o.fragmentIndex})}finally{t=!0}}}));const n=()=>{const{reference:e}=i();void 0===e||e<=1?m(o):s((()=>({reference:e-1})))};window.addEventListener("pagehide",(e=>{e.persisted&&window.addEventListener("pageshow",l),n()})),e.on("destroy",n)}},{PI:Y,abs:J,sqrt:z,atan2:G}=Math,Q={passive:!0},Z=({slope:e=-.7,swipeThreshold:t=30}={})=>n=>{let r;const o=n.parent,a=e=>{const t=o.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};o.addEventListener("touchstart",(({touches:e})=>{r=1===e.length?a(e[0]):void 0}),Q),o.addEventListener("touchmove",(e=>{if(r)if(1===e.touches.length){e.preventDefault();const t=a(e.touches[0]),n=t.x-r.x,o=t.y-r.y;r.delta=z(J(n)**2+J(o)**2),r.radian=G(n,o)}else r=void 0})),o.addEventListener("touchend",(o=>{if(r){if(r.delta&&r.delta>=t&&r.radian){const t=(r.radian-e+Y)%(2*Y)-Y;n[t<0?"next":"prev"](),o.stopPropagation()}r=void 0}}),Q)},ee="_tA",te=e=>{const t=document.documentTransition;if(!t)return;let n;e._tP=!1;const r=(n,{back:r,cond:o})=>a=>{var i,s;const l=e.slides[e.slide()].querySelector("section[data-transition]");if(!l)return!0;const d=document.querySelector(".bespoke-marp-osc"),c=d?[d]:void 0;if(e._tP){if(a._tA){e._tP=!1;try{t.start({sharedElements:c}).catch((()=>{}))}catch(e){}return!0}}else{if(!o(a))return!0;const d="transition"+(a.back||r?"Back":""),u=Number.parseInt(null!==(i=l.dataset[`${d}Duration`])&&void 0!==i?i:"",10),f=Number.parseInt(null!==(s=l.dataset[`${d}Delay`])&&void 0!==s?s:"",10),m={};Number.isNaN(u)||(m.duration=u.toString()),Number.isNaN(f)||(m.delay=f.toString()),e._tP=t.prepare({rootTransition:l.dataset[d],rootConfig:m,sharedElements:c}).then((()=>n(a))).catch((()=>n(a)))}return!1};e.on("prev",r((t=>e.prev({...t,[ee]:!0})),{back:!0,cond:e=>{var t;return e.index>0&&!((null===(t=e.fragment)||void 0===t||t)&&n.fragmentIndex>0)}})),e.on("next",r((t=>e.next({...t,[ee]:!0})),{cond:t=>t.index+1<e.slides.length&&!(n.fragmentIndex+1<n.fragments.length)})),setTimeout((()=>{e.on("slide",r((t=>e.slide(t.index,{...t,[ee]:!0})),{cond:t=>{const n=e.slide();return t.index!==n&&(t.back=t.index<n,!0)}}))}),0),e.on("fragment",(e=>{n=e}))};let ne;const re=()=>(void 0===ne&&(ne="wakeLock"in navigator&&navigator.wakeLock),ne),oe=async()=>{const e=re();if(e)try{return await e.request("screen")}catch(e){console.warn(e)}return null},ae=async()=>{if(!re())return;let e;const t=()=>{e&&"visible"===document.visibilityState&&oe()};for(const e of["visibilitychange","fullscreenchange"])document.addEventListener(e,t);return e=await oe(),e};((t=document.getElementById("p"))=>{(()=>{const t=l("view");e.dataset.bespokeView=t===r||t===n?t:""})();const a=(e=>{const t=l(e);return d({[e]:void 0}),t})("sync")||void 0;var i,c,u,f,m,g,h,y,b,w,E,T;i=t,c=((...e)=>{const t=o.findIndex((e=>s()===e));return e.map((([e,n])=>e[t]&&n)).filter((e=>e))})([[1,1,0],W({key:a})],[[1,1,1],V(t)],[[1,1,0],L],[[1,1,1],p],[[1,0,0],k()],[[1,1,1],$],[[1,1,1],H({history:!1})],[[1,1,0],S()],[[1,1,0],x],[[1,0,0],R],[[1,1,0],Z()],[[1,0,0],P()],[[1,0,0],te],[[1,1,1],v],[[1,1,0],ae]),f=1===(i.parent||i).nodeType?i.parent||i:document.querySelector(i.parent||i),m=[].filter.call("string"==typeof i.slides?f.querySelectorAll(i.slides):i.slides||f.children,(function(e){return"SCRIPT"!==e.nodeName})),g={},h=function(e,t){return(t=t||{}).index=m.indexOf(e),t.slide=e,t},w=function(e,t){m[e]&&(u&&b("deactivate",h(u,t)),u=m[e],b("activate",h(u,t)))},E=function(e,t){var n=m.indexOf(u)+e;b(e>0?"next":"prev",h(u,t))&&w(n,t)},T={off:y=function(e,t){g[e]=(g[e]||[]).filter((function(e){return e!==t}))},on:function(e,t){return(g[e]||(g[e]=[])).push(t),y.bind(null,e,t)},fire:b=function(e,t){return(g[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},slide:function(e,t){if(!arguments.length)return m.indexOf(u);b("slide",h(m[e],t))&&w(e,t)},next:E.bind(null,1),prev:E.bind(null,-1),parent:f,slides:m,destroy:function(e){b("destroy",h(u,e)),g={}}},(c||[]).forEach((function(e){e(T)})),u||w(0)})()}();</script></body></html>
