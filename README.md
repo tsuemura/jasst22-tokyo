@@ -4,30 +4,13 @@
 
 JaSST'22 Tokyoで発表する予定のスライド&サンプルコードです。
 
-## ディレクトリ構成
+## スライド
 
-フォルダ名|説明
----|---
-marpstyle|スライドのテーマファイル（別リポジトリ）
-samples|サンプルコード
-slides|スライド
+[設計編](https://tsuemura.github.io/jasst22-tokyo/60%E5%88%86%E3%81%A7%E5%AD%A6%E3%81%B6E2E%E3%83%86%E3%82%B9%E3%83%88%EF%BC%88%E3%83%86%E3%82%B9%E3%83%88%E8%A8%AD%E8%A8%88%E7%B7%A8%EF%BC%89.html)
+[実装編](https://tsuemura.github.io/jasst22-tokyo/60%E5%88%86%E3%81%A7%E5%AD%A6%E3%81%B6E2E%E3%83%86%E3%82%B9%E3%83%88%EF%BC%88%E3%83%86%E3%82%B9%E3%83%88%E5%AE%9F%E8%A3%85%E7%B7%A8%EF%BC%89.html)
 
-## スライドの追加とビルド
+## サンプルコード
 
-リポジトリを `--recursive` オプション付きでcloneします。 `--recursive` を付けないとテーマが適用されません。
-
-```bash
-$ git clone --recursive https://github.com/tsuemura/jasst22-tokyo.git
-```
-
-スライドは `slides/index.md` です。追加することもできます。[Marp](https://marp.app/) を使用しており、プレーンなMarkdownで書けます。
-
-ローカルでスライドを生成するには [Marp for VSCode](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) を利用してください。
-
-## デプロイ
-
-main ブランチに push すると、GitHub Pagesに自動的にデプロイされます。
-
-`slides` ディレクトリ内のスライドは自動的に全てビルドされます。
+https://github.com/tsuemura/jasst22-tokyo/tree/main/samples
 
 
