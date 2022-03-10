@@ -4,7 +4,7 @@
   "description": "JaSST'22 Tokyo 60分で学ぶE2Eテスト スライド",
   "main": "index.js",
   "scripts": {
-    "build": "npx marp",
+    "build": "npx marp --image jpeg && npx marp",
     "build-pdf": "npx marp --pdf"
   },
   "repository": {
